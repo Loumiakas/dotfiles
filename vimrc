@@ -1,6 +1,6 @@
-"==============================================================================
+"===============================================================================
 "   Plugins
-"==============================================================================
+"===============================================================================
 
 call plug#begin('~/.vim/plugged')
 
@@ -34,9 +34,9 @@ Plug 'Townk/vim-autoclose'
 
 call plug#end()
 
-"==============================================================================
+"===============================================================================
 "   Settings
-"==============================================================================
+"===============================================================================
 
 " utf-8 encoding
 set encoding=utf-8
@@ -51,6 +51,7 @@ endif
 
 " auto indent
 set autoindent
+set copyindent
 
 " check for changes in file
 set autoread
@@ -71,6 +72,9 @@ set path+=**
 "display last line
 set display+=lastline
 
+" modify list characters
+set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
+
 " required for addons
 filetype plugin indent on
 
@@ -78,7 +82,6 @@ filetype plugin indent on
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" find items as you type
 set incsearch
 
 " disable swapfiles
@@ -107,11 +110,11 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" automatically break after 79th character
-set textwidth=79
+" automatically break after 80th character
+set textwidth=80
 
 " highlight characters over limit
-match ErrorMsg '\%>79v.\+'
+match ErrorMsg '\%>80v.\+'
 
 "Toggles explorer buffer
 function! ToggleVExplorer()
@@ -136,7 +139,7 @@ let g:netrw_liststyle=3
 let g:netrw_winsize=20
 
 " toggle colored right border after 80 chars
-execute "set colorcolumn=" . join(range(80,335), ',')
+execute "set colorcolumn=" . join(range(81,335), ',')
 let s:color_column_old = 0
 function! g:ToggleColorColumn()
 if s:color_column_old == 0
@@ -207,9 +210,9 @@ if !exists("g:apex_properties_folder")
 let g:apex_properties_folder="/Users/macbook/.force/properties"
 endif
 
-"==============================================================================
+"===============================================================================
 "   Mappings
-"==============================================================================
+"===============================================================================
 
 " format code
 nmap <leader>1 :call FormatCode()<CR>
@@ -298,9 +301,9 @@ nnoremap <C-p> :find
 noremap <leader>s :sf
 noremap <leader>vs :vert sf
 
-"==============================================================================
+"===============================================================================
 "   Style
-"==============================================================================
+"===============================================================================
 
 " show syntax hightlighting
 syntax on
@@ -357,6 +360,6 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-"==============================================================================
+"===============================================================================
 "   Testing
-"==============================================================================
+"===============================================================================
