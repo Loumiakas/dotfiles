@@ -6,8 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " colorshemes
 Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-solarized8'
-Plug 'danilo-augusto/vim-afterglow'
+Plug 'chriskempson/base16-vim'
 
 " ui
 Plug 'vim-scripts/Tagbar'
@@ -53,13 +52,6 @@ set copyindent
 
 " check for changes in file
 set autoread
-
-" backspace key
-set backspace=indent,eol,start
-set smarttab
-set nrformats-=octal
-set ttimeout
-set ttimeoutlen=100
 
 " enable wildmenu
 set wildmenu
@@ -334,7 +326,9 @@ else
 endif
 
 " set colorscheme
-colorscheme solarized8_dark_flat
+let g:gruvbox_contrast_light="soft"
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
 
 " show ruler
 set ruler
