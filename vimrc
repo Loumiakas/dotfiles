@@ -10,8 +10,6 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'danilo-augusto/vim-afterglow'
 
 " ui
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/Tagbar'
 
 " salesforce development
@@ -341,15 +339,23 @@ colorscheme solarized8_dark_flat
 " show ruler
 set ruler
 
+" ruler settings
+set statusline=
+set statusline+=%-3.3n\                        " buffer number
+set statusline+=%f\                            " file name
+set statusline+=%h%m%r%w                       " flags
+set statusline+=[%{strlen(&ft)?&ft:'none'},\   " filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " encoding
+set statusline+=%{&fileformat}]                " file format
+set statusline+=%=                             " right align
+set statusline+=%b,0x%-8B\                     " current char
+set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
+
+" show command
+set showcmd
+
 " show status line
 set laststatus=2
-
-" allow use of powerline fonts
-let g:airline_powerline_fonts = 1
-
-" disable airline arrows
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 
 " allow cursor change in tmux mode
 if exists('$TMUX')
