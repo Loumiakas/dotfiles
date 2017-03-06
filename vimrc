@@ -46,6 +46,7 @@ if has("autocmd")
   \ endif
 endif
 
+"
 " auto indent
 set autoindent
 set copyindent
@@ -147,15 +148,15 @@ call ToggleColorColumn()
 
 " strip trailing whitespace, unix line endings, retab
 function! g:FormatCode()
-let _s=@/
-let l = line(".")
-let c = col(".")
-%s/\s\+$//e
-let @/=_s
-call cursor(l, c)
-retab
-%s///g
-echo "File successfully formatted!"
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+    retab
+    %s///g
+    echo "File successfully formatted!"
 endfunction
 
 " switch between numbers
@@ -191,16 +192,16 @@ set splitright
 let g:apex_tooling_force_dot_com_path=
                         \ "/Users/macbook/.force/tooling-force.com-0.3.8.0.jar"
 if !exists("g:apex_backup_folder")
-" full path required here, relative may not work
-let g:apex_backup_folder="/Users/macbook/.force/backup"
+    " full path required here, relative may not work
+    let g:apex_backup_folder="/Users/macbook/.force/backup"
 endif
 if !exists("g:apex_temp_folder")
-" full path required here, relative may not work
-let g:apex_temp_folder="/Users/macbook/.force/temp"
+    " full path required here, relative may not work
+    let g:apex_temp_folder="/Users/macbook/.force/temp"
 endif
 if !exists("g:apex_properties_folder")
-" full path required here, relative may not work
-let g:apex_properties_folder="/Users/macbook/.force/properties"
+    " full path required here, relative may not work
+    let g:apex_properties_folder="/Users/macbook/.force/properties"
 endif
 
 "===============================================================================
@@ -225,9 +226,7 @@ nmap <silent><Leader>5 :set cursorline!<CR>
 :hi clear CursorLine
 
 " toggle color column
-nnoremap <silent><Leader>6 :call ToggleColorColumn()<CR>
-
-" map jj as <ESC>
+nnoremap <silent><Leader>6 :call ToggleColorColumn()<CR> " map jj as <ESC>
 inoremap jj <Esc>
 
 " map <enter> to run macro
