@@ -59,8 +59,11 @@ set wildmenu
 " glob paths
 set path+=**
 
-"display last line
+" display last line
 set display+=lastline
+
+" set default file format to UNIX
+set fileformats=unix
 
 " modify list characters
 set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
@@ -151,7 +154,7 @@ let c = col(".")
 let @/=_s
 call cursor(l, c)
 retab
-set ff=unix
+%s///g
 echo "File successfully formatted!"
 endfunction
 
