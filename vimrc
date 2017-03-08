@@ -166,6 +166,35 @@ function! g:FormatCode()
     echo "File successfully formatted!"
 endfunction
 
+" Toggle quickfix window
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'),
+              \ 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
 " switch between numbers
 function! g:NumberToggle()
 if(&relativenumber == 1)
@@ -253,7 +282,8 @@ nnoremap <silent>[q :cprev<CR>
 nnoremap <silent>]q :cnext<CR>
 nnoremap <silent>[Q :cfirst<CR>
 nnoremap <silent>]Q :clast<CR>
-nnoremap <silent><leader>q :call ToggleQuickFix()<CR>
+nmap <silent> <leader>ql :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>qf :call ToggleList("Quickfix List", 'c')<CR>
 
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
@@ -275,10 +305,9 @@ nnoremap <Leader>o <C-O>
 
 " keybindings for cscope addon
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
 
 " grep  keybindings
-nnoremap <leader>f :Ag <C-R><C-W><CR>
+nnoremap <leader>s :Ag <C-R><C-W><CR>
 
 " toggle highlighting (search)
 nnoremap <silent><leader>hl :set hlsearch!<CR>
