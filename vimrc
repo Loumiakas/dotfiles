@@ -110,6 +110,13 @@ set textwidth=80
 " highlight characters over limit
 match ErrorMsg '\%>80v.\+'
 
+" replace grep with ag, if exists
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+endif
+
 "Toggles explorer buffer
 function! ToggleVExplorer()
 if exists("t:expl_buf_num")
@@ -241,6 +248,13 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" better quickfix window navigation
+nnoremap <silent>[q :cprev<CR>
+nnoremap <silent>]q :cnext<CR>
+nnoremap <silent>[Q :cfirst<CR>
+nnoremap <silent>]Q :clast<CR>
+nnoremap <silent><leader>q :call ToggleQuickFix()<CR>
+
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
 
@@ -262,6 +276,9 @@ nnoremap <Leader>o <C-O>
 " keybindings for cscope addon
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" grep  keybindings
+nnoremap <leader>f :Ag <C-R><C-W><CR>
 
 " toggle highlighting (search)
 nnoremap <silent><leader>hl :set hlsearch!<CR>
