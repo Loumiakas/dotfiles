@@ -86,6 +86,9 @@ set ignorecase
 " allow mouse clicks inside terminal
 set mouse=a
 
+" set 15 lines to the cursor when using j/k movement keys
+set so=15
+
 if has("mouse_sgr")
     set ttymouse=sgr
 else
@@ -165,7 +168,7 @@ function! g:FormatCode()
     echo "File successfully formatted!"
 endfunction
 
-" Toggle quickfix window
+" get buffer list
 function! GetBufferList()
   redir =>buflist
   silent! ls!
@@ -173,6 +176,7 @@ function! GetBufferList()
   return buflist
 endfunction
 
+" toggle quickfix window
 function! ToggleList(bufname, pfx)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'),
@@ -298,7 +302,7 @@ nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 
 " grep  keybindings
 nnoremap <leader>s :Ag <C-R><C-W><CR>
-vnoremap <leader>s "zy:Ag <C-R>z<CR>
+vnoremap <leader>s "zy:Ag '<C-R>z'<CR>
 
 " toggle highlighting (search)
 nnoremap <silent><leader>hl :set hlsearch!<CR>
