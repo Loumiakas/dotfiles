@@ -46,7 +46,6 @@ if has("autocmd")
   \ endif
 endif
 
-"
 " auto indent
 set autoindent
 set copyindent
@@ -288,15 +287,6 @@ nmap <silent> <leader>qf :call ToggleList("Quickfix List", 'c')<CR>
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
 
-" toggle tabs
-nmap <silent><leader>t :tabnext<CR>
-
-" create tab
-nmap <silent><leader>tn :tabnew<CR>
-
-" close tab
-nmap <silent><leader>tc :tabclose<CR>
-
 " toggle line numbers
 nnoremap <leader>nu :call NumberToggle()<cr>
 
@@ -308,6 +298,7 @@ nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 
 " grep  keybindings
 nnoremap <leader>s :Ag <C-R><C-W><CR>
+vnoremap <leader>s "zy:Ag <C-R>z<CR>
 
 " toggle highlighting (search)
 nnoremap <silent><leader>hl :set hlsearch!<CR>
@@ -334,10 +325,6 @@ vnoremap <leader>P "+P
 
 " poor man's ctrlp
 nnoremap <C-p> :find
-
-" split / vsplit shortcuts
-noremap <leader>s :sf
-noremap <leader>vs :vert sf
 
 "===============================================================================
 "   Style
