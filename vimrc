@@ -109,9 +109,6 @@ set shiftwidth=4
 " automatically break after 80th character
 set textwidth=80
 
-" highlight characters over limit
-match ErrorMsg '\%>80v.\+'
-
 " replace grep with ag, if exists
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --column
@@ -142,7 +139,8 @@ let g:netrw_liststyle=3
 let g:netrw_winsize=20
 
 " toggle colored right border after 80 chars
-execute "set colorcolumn=" . join(range(81,335), ',')
+set colorcolumn=81
+
 let s:color_column_old = 0
 function! g:ToggleColorColumn()
 if s:color_column_old == 0
@@ -266,6 +264,20 @@ nmap <silent><Leader>5 :set cursorline!<CR>
 
 " toggle color column
 nnoremap <silent><Leader>6 :call ToggleColorColumn()<CR> " map jj as <ESC>
+
+" toggle color on characteras over 80
+nnoremap <silent> <Leader>7
+    \ :if exists('w:long_line_match') <Bar>
+    \   silent! call matchdelete(w:long_line_match) <Bar>
+    \   unlet w:long_line_match <Bar>
+    \ elseif &textwidth > 0 <Bar>
+    \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+    \ else <Bar>
+    \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
+    \ endif<CR>
+
+
+" map jj to ESC
 inoremap jj <Esc>
 
 " map <enter> to run macro
@@ -368,6 +380,11 @@ endif
 let g:gruvbox_contrast_light="soft"
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
+
+" colorcolumn colors
+highlight ColorColumn ctermbg=12
+highlight ColorColumn guibg=#b55614
+let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " show ruler
 set ruler
