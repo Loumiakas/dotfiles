@@ -342,6 +342,10 @@ vnoremap <leader>P "+P
 " poor man's ctrlp
 nnoremap <C-p> :find
 
+" use magic mode by default in search mode
+nnoremap / /\v
+vnoremap / /\v
+
 "===============================================================================
 "   Style
 "===============================================================================
