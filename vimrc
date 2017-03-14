@@ -31,6 +31,9 @@ Plug 'Townk/vim-autoclose'
 
 call plug#end()
 
+" enable built in plugins
+runtime macros/matchit.vim
+
 "===============================================================================
 "   Settings
 "===============================================================================
@@ -389,6 +392,11 @@ colorscheme gruvbox
 highlight ColorColumn ctermbg=12
 highlight ColorColumn guibg=#b55614
 let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+" other colors
+highlight CursorLine gui=underline cterm=underline
+            \ ctermfg=NONE ctermbg=NONE
+            \ guibg=NONE guifg=NONE
 
 " show ruler
 set ruler
