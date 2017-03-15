@@ -109,8 +109,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" automatically break after 80th character
-set textwidth=80
+" automatically break after 78th character
+set textwidth=78
 
 " replace grep with ag, if exists
 if executable('ag')
@@ -141,8 +141,8 @@ endfunction
 let g:netrw_liststyle=3
 let g:netrw_winsize=20
 
-" toggle colored right border after 80 chars
-set colorcolumn=81
+" toggle colored right border after 78 chars
+set colorcolumn=79
 
 let s:color_column_old = 0
 function! g:ToggleColorColumn()
@@ -165,7 +165,8 @@ function! g:FormatCode()
     let @/=_s
     call cursor(l, c)
     retab
-    %s///g
+    %s/
+//g
     echo "File successfully formatted!"
 endfunction
 
@@ -268,7 +269,7 @@ nmap <silent><Leader>5 :set cursorline!<CR>
 " toggle color column
 nnoremap <silent><Leader>6 :call ToggleColorColumn()<CR> " map jj as <ESC>
 
-" toggle color on characteras over 80
+" toggle color on characteras over 78
 nnoremap <silent> <Leader>7
     \ :if exists('w:long_line_match') <Bar>
     \   silent! call matchdelete(w:long_line_match) <Bar>
@@ -276,7 +277,7 @@ nnoremap <silent> <Leader>7
     \ elseif &textwidth > 0 <Bar>
     \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
     \ else <Bar>
-    \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
+    \   let w:long_line_match = matchadd('ErrorMsg', '\%>78v.\+', -1) <Bar>
     \ endif<CR>
 
 
@@ -391,7 +392,7 @@ colorscheme gruvbox
 " colorcolumn colors
 highlight ColorColumn ctermbg=12
 highlight ColorColumn guibg=#b55614
-let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1)
+let w:long_line_match = matchadd('ErrorMsg', '\%>78v.\+', -1)
 
 " other colors
 highlight CursorLine gui=underline cterm=underline
