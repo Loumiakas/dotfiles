@@ -88,8 +88,8 @@ set ignorecase
 " allow mouse clicks inside terminal
 set mouse=a
 
-" set 15 lines to the cursor when using j/k movement keys
-set so=15
+" keep cursor in the middle, when using j/k keys
+set scrolloff=99
 
 " enable mouse support
 if has("mouse_sgr")
