@@ -1,6 +1,6 @@
-"===============================================================================
+"=============================================================================
 "   Plugins
-"===============================================================================
+"=============================================================================
 
 call plug#begin('~/.vim/plugged')
 
@@ -18,7 +18,6 @@ Plug 'neowit/vim-force.com'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'brookhong/cscope.vim'
 
 " navigation
 Plug 'wellle/targets.vim'
@@ -34,9 +33,9 @@ call plug#end()
 " enable built in plugins
 runtime macros/matchit.vim
 
-"===============================================================================
+"=============================================================================
 "   Settings
-"===============================================================================
+"=============================================================================
 
 " utf-8 encoding
 set encoding=utf-8
@@ -92,6 +91,7 @@ set mouse=a
 " set 15 lines to the cursor when using j/k movement keys
 set so=15
 
+" enable mouse support
 if has("mouse_sgr")
     set ttymouse=sgr
 else
@@ -114,9 +114,9 @@ set textwidth=78
 
 " replace grep with ag, if exists
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepformat=%f:%l:%c%m
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c%m
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 
 "Toggles explorer buffer
@@ -231,7 +231,7 @@ set splitright
 
 " apex development
 let g:apex_tooling_force_dot_com_path=
-                        \ "/Users/macbook/.force/tooling-force.com-0.3.8.0.jar"
+                       \ "/Users/macbook/.force/tooling-force.com-0.3.8.0.jar"
 if !exists("g:apex_backup_folder")
     " full path required here, relative may not work
     let g:apex_backup_folder="/Users/macbook/.force/backup"
@@ -245,12 +245,12 @@ if !exists("g:apex_properties_folder")
     let g:apex_properties_folder="/Users/macbook/.force/properties"
 endif
 
-"===============================================================================
+"=============================================================================
 "   Mappings
-"===============================================================================
+"=============================================================================
 
 " format code
-nmap <leader>1 :call FormatCode()<CR>
+nmap <silent><leader>1 :call FormatCode()<CR>
 
 " toggle Explorer
 nmap <silent><leader>2 :call ToggleVExplorer()<CR>
@@ -271,24 +271,45 @@ nnoremap <silent><Leader>6 :call ToggleColorColumn()<CR> " map jj as <ESC>
 
 " toggle color on characteras over 78
 nnoremap <silent> <Leader>7
-    \ :if exists('w:long_line_match') <Bar>
-    \   silent! call matchdelete(w:long_line_match) <Bar>
-    \   unlet w:long_line_match <Bar>
-    \ elseif &textwidth > 0 <Bar>
-    \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
-    \ else <Bar>
-    \   let w:long_line_match = matchadd('ErrorMsg', '\%>78v.\+', -1) <Bar>
-    \ endif<CR>
+  \ :if exists('w:long_line_match') <Bar>
+  \   silent! call matchdelete(w:long_line_match) <Bar>
+  \   unlet w:long_line_match <Bar>
+  \ elseif &textwidth > 0 <Bar>
+  \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+  \ else <Bar>
+  \   let w:long_line_match = matchadd('ErrorMsg', '\%>78v.\+', -1) <Bar>
+  \ endif<CR>
 
+" toggle highlighting (search)
+nnoremap <silent><leader>hl :set hlsearch!<CR>
+
+" toggle line numbers
+nnoremap <leader>nu :call NumberToggle()<cr>
+
+" paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" quickfix/location list keybindings
+nmap <silent> <leader>ql :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>qf :call ToggleList("Quickfix List", 'c')<CR>
+
+" grep  keybindings
+nnoremap <leader>s :Ag <C-R><C-W><CR>
+vnoremap <leader>s "zy:Ag '<C-R>z'<CR>
+
+" copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
 
 " map jj to ESC
 inoremap jj <Esc>
 
 " map <enter> to run macro
 nnoremap <enter> @@
-
-" back to previous buffer
-map <Leader>b <C-^>
 
 " better window navigation
 nnoremap <C-j> <C-w>j
@@ -301,27 +322,9 @@ nnoremap <silent>[q :cprev<CR>
 nnoremap <silent>]q :cnext<CR>
 nnoremap <silent>[Q :cfirst<CR>
 nnoremap <silent>]Q :clast<CR>
-nmap <silent> <leader>ql :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>qf :call ToggleList("Quickfix List", 'c')<CR>
 
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
-
-" toggle line numbers
-nnoremap <leader>nu :call NumberToggle()<cr>
-
-" map <C-O> to leader-o
-nnoremap <Leader>o <C-O>
-
-" keybindings for cscope addon
-nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-
-" grep  keybindings
-nnoremap <leader>s :Ag <C-R><C-W><CR>
-vnoremap <leader>s "zy:Ag '<C-R>z'<CR>
-
-" toggle highlighting (search)
-nnoremap <silent><leader>hl :set hlsearch!<CR>
 
 " ultiSnips key maps
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -332,17 +335,6 @@ let g:UltiSnipsSnippetDirectories  = ["snips"]
 " sudo write to file
 cmap w!! w !sudo tee > /dev/null %
 
-" copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-
-" paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-
 " poor man's ctrlp
 nnoremap <C-p> :find
 
@@ -350,9 +342,9 @@ nnoremap <C-p> :find
 nnoremap / /\v
 vnoremap / /\v
 
-"===============================================================================
+"=============================================================================
 "   Style
-"===============================================================================
+"=============================================================================
 
 " show syntax hightlighting
 syntax on
@@ -429,6 +421,12 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-"===============================================================================
+"=============================================================================
 "   Testing
-"===============================================================================
+"=============================================================================
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>`
