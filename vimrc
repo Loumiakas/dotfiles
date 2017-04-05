@@ -336,11 +336,7 @@ let g:UltiSnipsSnippetDirectories  = ["snips"]
 cmap w!! w !sudo tee > /dev/null %
 
 " poor man's ctrlp
-nnoremap <C-p> :find
-
-" use magic mode by default in search mode
-nnoremap / /\v
-vnoremap / /\v
+nnoremap <C-p> :find 
 
 "=============================================================================
 "   Style
