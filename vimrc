@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " colorshemes
 Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
 
 " ui
 Plug 'vim-scripts/Tagbar'
@@ -16,15 +16,14 @@ Plug 'neowit/vim-force.com'
 
 " editing and completion
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 " navigation
 Plug 'wellle/targets.vim'
 
 " formatting and indentation
-Plug 'scrooloose/nerdcommenter'
-Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
 
 " non categorized packages
 
@@ -59,7 +58,7 @@ set autoread
 set wildmenu
 
 " glob paths
-set path+=**
+set path+=.,**
 
 " display last line
 set display+=lastline
@@ -88,8 +87,8 @@ set ignorecase
 " allow mouse clicks inside terminal
 set mouse=a
 
-" keep cursor in the middle, when using j/k keys
-set scrolloff=99
+" don't move cursor to the buttom when scrolling
+set scrolloff=10
 
 " enable mouse support
 if has("mouse_sgr")
@@ -99,7 +98,7 @@ else
 end
 
 " fix backspace
-set bs=2
+set backspace=indent,eol,start
 
 " map new leader key to space bar
 let mapleader=" "
@@ -108,6 +107,7 @@ let mapleader=" "
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set smarttab
 
 " automatically break after 78th character
 set textwidth=78
