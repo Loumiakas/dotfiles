@@ -26,16 +26,16 @@ plugins=( rake rails laravel4 mysql tmux )
 #=============================================================================
 # Globals
 #=============================================================================
-if [ -f ".workflow.sh" ]; then
-    source .workflow.sh
-fi
-
 ZSH_TMUX_AUTOSTART=true
 TERM="screen-256color"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 ZSH_THEME=xiong-chiamiov
 EDITOR="vim"
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+if [ -f ".workflow.sh" ]; then
+    source .workflow.sh
+fi
 
 #=============================================================================
 # Aliases
