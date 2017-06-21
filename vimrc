@@ -11,9 +11,6 @@ Plug 'mhartington/oceanic-next'
 " ui
 Plug 'vim-scripts/Tagbar'
 
-" salesforce development
-Plug 'neowit/vim-force.com'
-
 " editing and completion
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'jiangmiao/auto-pairs'
@@ -81,8 +78,8 @@ set incsearch
 " disable swapfiles
 set noswapfile
 
-" ignore case when searching
-set ignorecase
+" infercase when searching
+set infercase
 
 " allow mouse clicks inside terminal
 set mouse=a
@@ -111,6 +108,10 @@ set smarttab
 
 " automatically break after 78th character
 set textwidth=78
+
+" performance settings
+set synmaxcol=200
+set lazyredraw
 
 " replace grep with ag, if exists
 if executable('ag')
