@@ -219,31 +219,12 @@ set wildignorecase
 " move mod key is ctrl
 let g:move_key_modifier = 'C'
 
-" show numbers
-set number
-
 " add relative numbers
 set relativenumber number
 
 " better splitting
 set splitbelow
 set splitright
-
-" apex development
-let g:apex_tooling_force_dot_com_path=
-                       \ "/Users/macbook/.force/tooling-force.com-0.3.8.0.jar"
-if !exists("g:apex_backup_folder")
-    " full path required here, relative may not work
-    let g:apex_backup_folder="/Users/macbook/.force/backup"
-endif
-if !exists("g:apex_temp_folder")
-    " full path required here, relative may not work
-    let g:apex_temp_folder="/Users/macbook/.force/temp"
-endif
-if !exists("g:apex_properties_folder")
-    " full path required here, relative may not work
-    let g:apex_properties_folder="/Users/macbook/.force/properties"
-endif
 
 "=============================================================================
 "   Mappings
@@ -308,9 +289,6 @@ nnoremap  <leader>y  "+y
 " map jj to ESC
 inoremap jj <Esc>
 
-" map <enter> to run macro
-nnoremap <enter> @@
-
 " better window navigation
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -325,12 +303,6 @@ nnoremap <silent>]Q :clast<CR>
 
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
-
-" ultiSnips key maps
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories  = ["snips"]
 
 " sudo write to file
 cmap w!! w !sudo tee > /dev/null %
@@ -420,9 +392,3 @@ endif
 "=============================================================================
 "   Testing
 "=============================================================================
-" allows incsearch highlighting for range commands
-cnoremap $t <CR>:t''<CR>
-cnoremap $T <CR>:T''<CR>
-cnoremap $m <CR>:m''<CR>
-cnoremap $M <CR>:M''<CR>
-cnoremap $d <CR>:d<CR>`
