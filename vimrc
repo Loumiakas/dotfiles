@@ -53,6 +53,7 @@ set autoread
 
 " enable wildmenu
 set wildmenu
+set wildmode=full
 
 " glob paths
 set path+=.,**
@@ -72,6 +73,9 @@ filetype plugin indent on
 " disable [scratch] window on autocomplete
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" automatically resize windows on change
+autocmd VimResized * wincmd =
 
 set incsearch
 
@@ -304,6 +308,9 @@ nnoremap <silent>]Q :clast<CR>
 
 " repeat previous command in visual mode
 vnoremap . :norm.<CR>
+
+" run macro in visual mode
+xnoremap Q :'<,'>:normal @q<CR>
 
 " sudo write to file
 cmap w!! w !sudo tee > /dev/null %
