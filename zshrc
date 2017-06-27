@@ -26,12 +26,13 @@ plugins=( rake rails laravel4 mysql tmux )
 #=============================================================================
 # Globals
 #=============================================================================
-ZSH_TMUX_AUTOSTART=true
-TERM="screen-256color"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
-ZSH_THEME=xiong-chiamiov
-EDITOR="vim"
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export ZSH_TMUX_AUTOSTART=true
+export TERM="screen-256color"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
+export ZSH_THEME=xiong-chiamiov
+export EDITOR="vim"
+export LESS_TERMCAP_so=$'\E[30;43m'
+export LESS_TERMCAP_se=$'\E[39;49m'
 
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
@@ -43,8 +44,6 @@ fi
 alias vi='vim '
 alias update='brew update && brew upgrade'
 alias sudo='sudo '
-alias ssh-ama='ssh -i ~/Documents/foobar-laravel-instance.pem \
-                    ubuntu@ec2-54-194-139-222.eu-west-1.compute.amazonaws.com'
 
 
 #=============================================================================
