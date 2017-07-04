@@ -397,19 +397,6 @@ highlight CursorLine gui=underline cterm=underline
 " show ruler
 set ruler
 
-" ruler settings
-set statusline=
-set statusline+=%-3.3n\                        " buffer number
-set statusline+=%f\                            " file name
-set statusline+=%h%m%r%w                       " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},\   " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " encoding
-set statusline+=%{&fileformat}]                " file format
-set statusline+=%=                             " right align
-set statusline+=\ %{\ line2byte(line(\"$\")+1)-1\ }B
-set statusline+=%b,0x%-8B\                     " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
-
 " show command
 set showcmd
 
