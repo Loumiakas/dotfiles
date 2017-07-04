@@ -85,8 +85,8 @@ set incsearch
 " disable swapfiles
 set noswapfile
 
-" infercase when searching
-set infercase
+" ignorecase when searching
+set ignorecase
 
 " don't move cursor to the buttom when scrolling
 set scrolloff=10
@@ -406,6 +406,7 @@ set statusline+=[%{strlen(&ft)?&ft:'none'},\   " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " encoding
 set statusline+=%{&fileformat}]                " file format
 set statusline+=%=                             " right align
+set statusline+=\ %{\ line2byte(line(\"$\")+1)-1\ }B
 set statusline+=%b,0x%-8B\                     " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
 
