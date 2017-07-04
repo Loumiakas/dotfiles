@@ -36,12 +36,22 @@ runtime macros/matchit.vim
 " utf-8 encoding
 set encoding=utf-8
 
-" when editing a file, always jump to the last cursor position
 if has("autocmd")
+  " when editing a file, always jump to the last cursor position
   autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal g'\"" |
   \ endif
+  
+  " enable statusline
+  autocmd BufNewFile,BufRead * call SetStatusLine()
+ 
+  " disable [scratch] window on autocomplete
+  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+  " automatically resize windows on change
+  autocmd VimResized * wincmd =
 endif
 
 " auto indent
@@ -69,13 +79,6 @@ set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
 
 " required for addons
 filetype plugin indent on
-
-" disable [scratch] window on autocomplete
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" automatically resize windows on change
-autocmd VimResized * wincmd =
 
 set incsearch
 
@@ -181,6 +184,35 @@ function! GetBufferList()
   silent! ls!
   redir END
   return buflist
+endfunction
+
+" show function name at cursor
+function! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  let name = getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+  return substitute(name,'(.*','','')
+endfunction
+
+" set statusline view
+function! SetStatusLine()
+    set statusline=
+    set statusline+=%-3.3n\                        " buffer number
+    set statusline+=%f\                            " file name
+    set statusline+=%h%m%r%w                       " flags
+    set statusline+=[%{strlen(&ft)?&ft:'none'},\   " filetype
+    set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " encoding
+    set statusline+=%{&fileformat}]\               " file format  
+    let fts = ['c', 'cpp', 'hpp', 'h']
+    if index( fts, &filetype ) > 0
+        set statusline+=<%{ShowFuncName()}>        " show function name
+    endif
+    set statusline+=%=                             " right align
+    set statusline+=%b,0x%-8B\                     " current char
+    set statusline+=%-14.(%l,%c%V%)\ %<%P          " offset
 endfunction
 
 " toggle quickfix window
