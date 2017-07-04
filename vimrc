@@ -88,18 +88,13 @@ set noswapfile
 " infercase when searching
 set infercase
 
-" allow mouse clicks inside terminal
-set mouse=a
-
 " don't move cursor to the buttom when scrolling
 set scrolloff=10
 
 " enable mouse support
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
+if has("mouse")
+    set mouse=a
+endif
 
 " fix backspace
 set backspace=indent,eol,start
@@ -304,11 +299,16 @@ nnoremap <silent><leader>hl :set hlsearch!<CR>
 " toggle line numbers
 nnoremap <leader>nu :call NumberToggle()<cr>
 
-" paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+" copy/paste from clipboard
+if has('clipboard')
+    vnoremap  <leader>y  "+y
+    nnoremap  <leader>Y  "+yg_
+    nnoremap  <leader>y  "+y
+    nnoremap <leader>p "+p
+    nnoremap <leader>P "+P
+    vnoremap <leader>p "+p
+    vnoremap <leader>P "+P
+endif
 
 " quickfix/location list keybindings
 nmap <silent> <leader>ql :call ToggleList("Location List", 'l')<CR>
@@ -317,11 +317,6 @@ nmap <silent> <leader>qf :call ToggleList("Quickfix List", 'c')<CR>
 " grep  keybindings
 nnoremap <leader>s :Ag <C-R><C-W><CR>
 vnoremap <leader>s "zy:Ag '<C-R>z'<CR>
-
-" copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
 
 " map jj to ESC
 inoremap jj <Esc>
