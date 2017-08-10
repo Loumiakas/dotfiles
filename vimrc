@@ -37,9 +37,9 @@ Plug 'tpope/vim-commentary'
 call plug#end()
 
 "=============================================================================
-" Plugin Settings 
+" Plugin Settings
 "=============================================================================
-let g:tagbar_autoclose = 1
+let g:tagbar_autoclose=1
 let g:gruvbox_contrast_light="soft"
 let g:gruvbox_contrast_dark="hard"
 
@@ -54,10 +54,10 @@ set backspace=indent,eol,start
 set colorcolumn=79
 set copyindent
 set display+=lastline
-set expandtab		
+set expandtab
 set hidden
 set ignorecase
-set incsearch 
+set incsearch
 set laststatus=2
 set lazyredraw
 set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
@@ -67,17 +67,18 @@ set path=.,**
 set relativenumber number
 set ruler
 set scrolloff=10
-set shiftwidth=4		
+set shiftwidth=4
 set showcmd
 set smarttab
 set splitbelow
 set splitright
 set t_Co=256
-set tabstop=4		
+set tabstop=4
 set textwidth=78
 set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
+
 
 if has('gui_running')
     set guioptions-=r
@@ -99,7 +100,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 inoremap jj <ESC>
 nnoremap <C-P> :find 
 
-nnoremap <silent><leader>1  :call FormatCode()<CR>
+nnoremap <silent><leader>1  :call formatter#FormatCode()<CR>
 nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<CR>
 nnoremap <silent><leader>3  :TagbarToggle<CR>
 nnoremap <silent><Leader>5  :set cursorline!<CR>
