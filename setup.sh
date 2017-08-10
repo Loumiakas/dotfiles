@@ -8,6 +8,10 @@ ln -s $SCRIPT_HOME/tmux.conf ~/.tmux.conf
 ln -s $SCRIPT_HOME/tmux-macos.conf ~/.tmux-macos.conf
 ln -s $SCRIPT_HOME/tmux-linux.conf ~/.tmux-linux.conf
 
-# download vim plugin manager
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ -d "/Users/macbook/.vim/autoload" ]; then
+	ln -s $SCRIPT_HOME/vim/autoload/* /Users/macbook/.vim/autoload/
+else
+	mkdir -p /Users/macbook/.vim/autoload/
+	ln -s $SCRIPT_HOME/vim/autoload/* /Users/macbook/.vim/autoload/
+fi
+
