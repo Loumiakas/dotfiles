@@ -12,6 +12,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 " statusline plugin
 autocmd BufNewFile,BufRead * call statusline#SetStatusLine()
+autocmd FileType cpp,c call statusline#SetStatusLineCpp()
 " when editing a file, always jump to the last cursor position
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -34,7 +35,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 call plug#end()
-" auto commands
 
 "=============================================================================
 " Plugin Settings 
@@ -49,10 +49,12 @@ let g:gruvbox_contrast_dark="hard"
 let mapleader=" "
 set autoindent
 set autoread
+set background=dark
 set backspace=indent,eol,start
 set colorcolumn=79
 set copyindent
 set display+=lastline
+set expandtab		
 set hidden
 set ignorecase
 set incsearch 
@@ -65,15 +67,17 @@ set path=.,**
 set relativenumber number
 set ruler
 set scrolloff=10
+set shiftwidth=4		
 set showcmd
+set smarttab
 set splitbelow
 set splitright
+set t_Co=256
+set tabstop=4		
 set textwidth=78
 set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
-set background=dark
-set t_Co=256
 
 if has('gui_running')
     set guioptions-=r
