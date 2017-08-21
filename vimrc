@@ -99,6 +99,8 @@ colorscheme ayu
 cnoremap w!! w !sudo tee > /dev/null %
 inoremap jj <ESC>
 nnoremap <C-P> :find 
+nnoremap <PageUp> <C-U>
+nnoremap <PageDown> <C-D>
 
 nnoremap <silent><leader>1  :call formatter#FormatCode()<CR>
 nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<CR>
