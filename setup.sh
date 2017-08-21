@@ -7,6 +7,7 @@ ln -s $SCRIPT_HOME/vimrc ~/.vimrc
 ln -s $SCRIPT_HOME/tmux.conf ~/.tmux.conf
 ln -s $SCRIPT_HOME/tmux-macos.conf ~/.tmux-macos.conf
 ln -s $SCRIPT_HOME/tmux-linux.conf ~/.tmux-linux.conf
+ln -s $SCRIPT_HOME/gdbinit ~/.gdbinit
 
 if [ -d "~/.vim/autoload" ]; then
 	ln -s $SCRIPT_HOME/vim/autoload/* ~/.vim/autoload/
