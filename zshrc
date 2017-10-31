@@ -33,6 +33,7 @@ export ZSH_THEME=xiong-chiamiov
 export EDITOR="vim"
 export LESS_TERMCAP_so=$'\E[30;43m'
 export LESS_TERMCAP_se=$'\E[39;49m'
+export ANDROID_HOME=/usr/local/share/android-sdk
 
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
