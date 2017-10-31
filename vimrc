@@ -91,7 +91,7 @@ else
     endif
 endif
 
-colorscheme ayu
+colorscheme gruvbox
 
 "=============================================================================
 " Mappings
