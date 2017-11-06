@@ -102,7 +102,7 @@ nnoremap <C-P> :find
 nnoremap <PageUp> <C-U>
 nnoremap <PageDown> <C-D>
 
-nnoremap <silent><leader>1  :call formatter#FormatCode()<CR>
+nnoremap <silent><leader>1  :%substitute/\s\+$//g<CR>
 nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<CR>
 nnoremap <silent><leader>3  :TagbarToggle<CR>
 nnoremap <silent><Leader>5  :set cursorline!<CR>
