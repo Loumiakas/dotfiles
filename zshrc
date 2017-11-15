@@ -33,7 +33,14 @@ export ZSH_THEME=xiong-chiamiov
 export EDITOR="vim"
 export LESS_TERMCAP_so=$'\E[30;43m'
 export LESS_TERMCAP_se=$'\E[39;49m'
+
+# Android globals
 export ANDROID_HOME=/usr/local/share/android-sdk
+
+# Arduino globals
+export ARDUINO_DIR=/Applications/Arduino.app/Contents/Java
+export ARDMK_DIR=/usr/local/Cellar/arduino-mk/1.5.2
+export AVR_TOOLS_DIR=/Applications/Arduino.app/Contents/Java/hardware/tools/avr
 
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
@@ -91,6 +98,12 @@ function tc-test()
     }
     printf "\n";
 }'
+}
+
+# show available connected devices
+function lstty()
+{
+    ls -lrt /dev/tty\.*
 }
 
 
