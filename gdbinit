@@ -1,4 +1,5 @@
 set print symbol-filename on
+set print repeats 0
 set print pretty on
 set print arrays on
 set print object on
