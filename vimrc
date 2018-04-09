@@ -26,6 +26,7 @@ autocmd VimResized * wincmd =
 "=============================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'challenger-deep-theme/vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'vim-scripts/Tagbar'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -64,7 +65,7 @@ set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
 set mouse=a
 set noswapfile
 set path=.,**
-set relativenumber number
+set number
 set ruler
 set scrolloff=10
 set shiftwidth=4
