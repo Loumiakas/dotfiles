@@ -57,7 +57,7 @@ set copyindent
 set display+=lastline
 set expandtab
 set hidden
-set ignorecase
+set smartcase
 set incsearch
 set laststatus=2
 set lazyredraw
