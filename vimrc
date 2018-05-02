@@ -65,8 +65,9 @@ set lazyredraw
 set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
 set mouse=a
 set noswapfile
-set path=.,**
 set number
+set path=.,**
+set regexpengine=1
 set ruler
 set scrolloff=10
 set shiftwidth=4
