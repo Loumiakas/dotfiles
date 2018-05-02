@@ -35,6 +35,7 @@ Plug 'tpope/vim-surround'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 "=============================================================================
@@ -94,7 +95,7 @@ else
     endif
 endif
 
-colorscheme gruvbox
+colorscheme palenight
 
 "=============================================================================
 " Mappings
