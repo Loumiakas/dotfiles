@@ -79,6 +79,7 @@ set splitright
 set t_Co=256
 set tabstop=4
 set textwidth=78
+set timeoutlen=400
 set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
@@ -95,7 +96,7 @@ else
     endif
 endif
 
-colorscheme palenight
+colorscheme gruvbox
 
 "=============================================================================
 " Mappings
