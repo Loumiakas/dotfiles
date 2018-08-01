@@ -9,6 +9,13 @@ ln -s $SCRIPT_HOME/tmux-macos.conf ~/.tmux-macos.conf
 ln -s $SCRIPT_HOME/tmux-linux.conf ~/.tmux-linux.conf
 ln -s $SCRIPT_HOME/gdbinit ~/.gdbinit
 
+if [ -d "~/.vim/after" ]; then
+	ln -s $SCRIPT_HOME/vim/after/* ~/.vim/after/
+else
+	mkdir -p ~/.vim/after/
+	ln -s $SCRIPT_HOME/vim/after/* ~/.vim/after/
+fi
+
 if [ -d "~/.vim/autoload" ]; then
 	ln -s $SCRIPT_HOME/vim/autoload/* ~/.vim/autoload/
 else
