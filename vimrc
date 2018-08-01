@@ -79,7 +79,7 @@ set splitright
 set t_Co=256
 set tabstop=4
 set textwidth=78
-set timeoutlen=400
+set timeoutlen=500
 set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
