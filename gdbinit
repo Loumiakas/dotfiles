@@ -8,5 +8,3 @@ set print vtbl on
 
 set confirm off
 set verbose off
-
-set startup-with-shell off
