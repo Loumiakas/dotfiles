@@ -96,7 +96,7 @@ else
     endif
 endif
 
-colorscheme gruvbox
+colorscheme ayu
 
 "=============================================================================
 " Mappings
@@ -110,9 +110,9 @@ nnoremap <PageDown> <C-D>
 nnoremap <silent><leader>1  :%substitute/\s\+$//g<CR>
 nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<CR>
 nnoremap <silent><leader>3  :TagbarToggle<CR>
-nnoremap <silent><Leader>5  :set cursorline!<CR>
-nnoremap <silent><Leader>4  :set list!<CR>
-nnoremap <silent><Leader>6  :call colorcolumn#ToggleColorColumn()<CR>
+nnoremap <silent><leader>5  :set cursorline!<CR>
+nnoremap <silent><leader>4  :set list!<CR>
+nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<CR>
 nnoremap <silent><leader>hl :set hlsearch!<CR>
 
 if has('clipboard') " paste buffer shortcuts
