@@ -12,6 +12,7 @@ autoload -U compinit && compinit
 # Globals
 #=============================================================================
 if [[ -z $TMUX ]]; then
+    export CLICOLOR=1
     export ANDROID_HOME=$HOME/Library/android/sdk
     export EDITOR="vim"
     export LESS_TERMCAP_se=$'\E[39;49m'
@@ -42,7 +43,6 @@ alias ...='cd ../../../'
 alias ..='cd ..'
 alias l='ls'
 alias ll='ls -lrt'
-alias ls='ls -G'
 alias sudo='sudo '
 alias update='brew update && brew upgrade'
 
