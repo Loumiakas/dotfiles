@@ -1,13 +1,13 @@
 #=============================================================================
 # Shell settings
 #=============================================================================
-autoload -U compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
-
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -U compinit && compinit
 #=============================================================================
 # Globals
 #=============================================================================
@@ -36,14 +36,19 @@ fi
 #=============================================================================
 # Aliases
 #=============================================================================
-alias sudo='sudo '
+alias .....='cd ../../../../'
+alias ....='cd ../../../../'
+alias ...='cd ../../../'
+alias ..='cd ..'
+alias l='ls'
+alias ll='ls -lrt'
 alias ls='ls -G'
+alias sudo='sudo '
 alias update='brew update && brew upgrade'
 
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
-fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
