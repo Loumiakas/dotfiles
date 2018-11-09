@@ -7,14 +7,13 @@ source .antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle command-not-found
 antigen bundle git
 antigen bundle heroku
-antigen bundle pip
 antigen bundle lein
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle pip
 antigen bundle zsh-users/zsh-autosuggestions
-
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tell antigen that you're done.
 antigen apply
@@ -26,21 +25,22 @@ plugins=( rake rails laravel4 mysql tmux )
 #=============================================================================
 # Globals
 #=============================================================================
-export ZSH_TMUX_AUTOSTART=true
+export ANDROID_HOME=$HOME/Library/android/sdk
+export EDITOR="vim"
+export LESS_TERMCAP_se=$'\E[39;49m'
+export LESS_TERMCAP_so=$'\E[30;43m'
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 export TERM="screen-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 export ZSH_THEME=xiong-chiamiov
-export EDITOR="vim"
-export LESS_TERMCAP_so=$'\E[30;43m'
-export LESS_TERMCAP_se=$'\E[39;49m'
 
-# Android globals
-export ANDROID_HOME=/usr/local/share/android-sdk
-
-# Arduino globals
-export ARDUINO_DIR=/Applications/Arduino.app/Contents/Java
-export ARDMK_DIR=/usr/local/Cellar/arduino-mk/1.5.2
-export AVR_TOOLS_DIR=/Applications/Arduino.app/Contents/Java/hardware/tools/avr
+if [[ $OSTYPE =~ "darwin" ]] && 
+      ! type "reattach-to-user-namespace" > /dev/null; then
+    echo "reattach-to-user-namespace not installed, tmux will not auto-start"
+    export ZSH_TMUX_AUTOSTART=false
+else
+    export ZSH_TMUX_AUTOSTART=true
+fi
 
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
@@ -49,9 +49,8 @@ fi
 #=============================================================================
 # Aliases
 #=============================================================================
-alias vi='vim '
-alias update='brew update && brew upgrade'
 alias sudo='sudo '
+alias update='brew update && brew upgrade'
 
 
 #=============================================================================
@@ -99,14 +98,6 @@ function tc-test()
     printf "\n";
 }'
 }
-
-# show available connected devices
-function lstty()
-{
-    ls -lrt /dev/tty\.*
-}
-
-
 #=============================================================================
 source $ZSH/oh-my-zsh.sh
 #=============================================================================
