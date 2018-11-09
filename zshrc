@@ -1,26 +1,6 @@
 #=============================================================================
-# Antigen
+# Zplug manager
 #=============================================================================
-
-source .antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
-antigen bundle git
-antigen bundle heroku
-antigen bundle lein
-antigen bundle pip
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Tell antigen that you're done.
-antigen apply
-
-# Oh-my-ZSH plugins
-plugins=( rake rails laravel4 mysql tmux )
 
 #=============================================================================
 # Globals
@@ -102,7 +82,3 @@ function tc-test()
     printf "\n";
 }'
 }
-
-#=============================================================================
-source $ZSH/oh-my-zsh.sh
-#=============================================================================
