@@ -25,17 +25,18 @@ autocmd VimResized * wincmd =
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'challenger-deep-theme/vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'vim-scripts/Tagbar'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-commentary'
+Plug 'brookhong/cscope.vim'
+Plug 'challenger-deep-theme/vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'morhetz/gruvbox'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/Tagbar'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 "=============================================================================
@@ -115,7 +116,7 @@ nnoremap <silent><leader>4  :set list!<CR>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<CR>
 nnoremap <silent><leader>hl :set hlsearch!<CR>
 
-if has('clipboard') " paste buffer shortcuts
+if has('clipboard') " clipboard buffer shortcuts
     vnoremap <leader>y "+y
     nnoremap <leader>Y "+yg_
     nnoremap <leader>y "+y
