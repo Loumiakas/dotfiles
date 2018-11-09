@@ -3,6 +3,7 @@ if ! (( $+commands[tmux] )); then
   return 1
 fi
 
+
 # ALIASES
 
 alias ta='tmux attach -t'
