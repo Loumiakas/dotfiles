@@ -90,12 +90,12 @@ prompt_jnrowe_precmd () {
  %{$c13%}(%{$c5%}%?%{$c13%})->%{$c0%} '
   elif [[ $(git diff --cached --name-status 2>/dev/null ) != "" ]]; then
     dir_status="$c6( %D{%H:%M:%S} )-> %{$c1%}%n%{$c4%}@%{$c2%}%m%{$c0%}:%{$c3%}%l%{$c6%}->%{$(zsh_path)%}"
-    PROMPT='${vcs_info_msg_0_}%{$30%} %{$bg_bold[red]%}%{$fg_bold[black]%}COMMIT%{$reset_color%}
+    PROMPT='${vcs_info_msg_0_}
 %{$fg_bold[green]%}%p%{$reset_color%}${dir_status}%{$reset_color%}
  %{$c13%}(%{$c5%}%?%{$c13%})->%{$c0%} '
   elif [[ $(git diff --name-status 2>/dev/null ) != "" ]]; then
     dir_status="$c6( %D{%H:%M:%S} )-> %{$c1%}%n%{$c4%}@%{$c2%}%m%{$c0%}:%{$c3%}%l%{$c6%}->%{$(zsh_path)%}"
-    PROMPT='${vcs_info_msg_0_}%{$bg_bold[red]%}%{$fg_bold[black]%}DIRTY%{$reset_color%}
+    PROMPT='${vcs_info_msg_0_}
 %{$fg_bold[green]%}%p%{$reset_color%}${dir_status}%{$reset_color%}
  %{$c13%}(%{$c5%}%?%{$c13%})->%{$c0%} '
   else
