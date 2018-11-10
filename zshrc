@@ -1,5 +1,5 @@
 #=============================================================================
-# Shell settings
+#k  Shell settings
 #=============================================================================
 fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 HISTFILE=$HOME/.zsh_history
@@ -60,4 +60,4 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
-source $HOME/.zsh_plugins/zsh/trapd00r.zsh-theme
+source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
