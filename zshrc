@@ -56,12 +56,12 @@ alias update='brew update; brew upgrade --all; brew cask upgrade; brew cleanup'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
-source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
 
+source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # disable hooks that slow down performance
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
