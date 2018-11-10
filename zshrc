@@ -1,5 +1,5 @@
 #=============================================================================
-# Shell settings
+#k  Shell settings
 #=============================================================================
 fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 HISTFILE=$HOME/.zsh_history
@@ -63,6 +63,6 @@ source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
 
 # disable hooks that slow down performance
-add-zsh-hook -d chpwd chpwd_update_git_vars
+add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
-add-zsh-hook -d precmd precmd_update_git_vars
+add-zsh-hook -d precmd  precmd_update_git_vars
