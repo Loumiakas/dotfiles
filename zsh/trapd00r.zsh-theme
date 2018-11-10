@@ -98,7 +98,7 @@ zstyle ':vcs_info:*' actionformats \
     '%{$c8%}(%f%s)%{$c7%}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
 
 zstyle ':vcs_info:*' formats \
-    "%{$c8%}%s%%{$c7%}❨ %{$c9%}%{$c11%}%b%{$c7%} ❩%{$reset_color%}%f "
+    "%{$c8%}%s%%{$c7%}[ %{$c9%}%{$c11%}%b%{$c7%} ]%{$reset_color%}%f "
 
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git
