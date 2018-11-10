@@ -12,21 +12,21 @@ autoload -U compinit && compinit
 # Globals
 #=============================================================================
 if [[ -z $TMUX ]]; then
-    export CLICOLOR=1
     export ANDROID_HOME=$HOME/Library/android/sdk
+    export CLICOLOR=1
     export EDITOR="vim"
-    export LESS_TERMCAP_se=$'\E[39;49m'
-    export LESS_TERMCAP_so=$'\E[30;43m'
-    export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export TERM="screen-256color"
     export HISTFILE=$HOME/.zsh_history
     export LESS_TERMCAP_mb=$'\e[1;32m'
     export LESS_TERMCAP_md=$'\e[1;32m'
     export LESS_TERMCAP_me=$'\e[0m'
+    export LESS_TERMCAP_se=$'\E[39;49m'
     export LESS_TERMCAP_se=$'\e[0m'
+    export LESS_TERMCAP_so=$'\E[30;43m'
     export LESS_TERMCAP_so=$'\e[01;33m'
     export LESS_TERMCAP_ue=$'\e[0m'
     export LESS_TERMCAP_us=$'\e[1;4;31m'
+    export PATH=$PATH:$ANDROID_HOME/platform-tools
+    export TERM="screen-256color"
 fi
 
 cmd="reattach-to-user-namespace"
@@ -59,5 +59,10 @@ alias update='brew update; brew upgrade --all; brew cask upgrade; brew cleanup'
 source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
-source $HOME/.zsh_plugins/zsh/trapd00r.zsh-theme
+
+# disable hooks that slow down performance
+add-zsh-hook -d chpwd chpwd_update_git_vars
+add-zsh-hook -d preexec preexec_update_git_vars
+add-zsh-hook -d precmd precmd_update_git_vars
