@@ -33,7 +33,6 @@ fi
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
 fi
-
 #=============================================================================
 # Aliases
 #=============================================================================
@@ -41,11 +40,12 @@ alias .....='cd ../../../../'
 alias ....='cd ../../../../'
 alias ...='cd ../../../'
 alias ..='cd ..'
+alias grep='grep --color=auto -n'
 alias l='ls'
+alias la='ls -lrta'
 alias ll='ls -lrt'
 alias sudo='sudo '
-alias update='brew update && brew upgrade'
-
+alias update='brew update; brew upgrade --all; brew cask upgrade; brew cleanup'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
