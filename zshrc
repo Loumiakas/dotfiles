@@ -5,6 +5,7 @@ fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+bindkey -e
 setopt appendhistory
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit && compinit
