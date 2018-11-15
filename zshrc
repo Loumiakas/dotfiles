@@ -1,5 +1,5 @@
 #=============================================================================
-#k  Shell settings
+#  Shell settings
 #=============================================================================
 fpath=($HOME/.zsh_plugins/zsh-completions/src $fpath)
 HISTFILE=$HOME/.zsh_history
@@ -27,7 +27,7 @@ if [[ -z $TMUX ]]; then
     export LESS_TERMCAP_ue=$'\e[0m'
     export LESS_TERMCAP_us=$'\e[1;4;31m'
     export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export TERM="screen-256color"
+    export TERM="xterm-256color"
 fi
 
 cmd="reattach-to-user-namespace"

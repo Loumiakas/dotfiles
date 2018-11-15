@@ -6,18 +6,18 @@ syntax on
 "=============================================================================
 " download plugin manager, if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " statusline plugin
 autocmd BufNewFile,BufRead * call statusline#SetStatusLine()
 autocmd FileType cpp,c call statusline#SetStatusLineCpp()
 " when editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-  \   exe "normal g'\"" |
-  \ endif
+            \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \   exe "normal g'\"" |
+            \ endif
 " automatically resize windows on change
 autocmd VimResized * wincmd =
 
@@ -25,14 +25,12 @@ autocmd VimResized * wincmd =
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
-Plug 'ayu-theme/ayu-vim'
 Plug 'brookhong/cscope.vim'
-Plug 'challenger-deep-theme/vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/Tagbar'
@@ -97,8 +95,7 @@ else
     endif
 endif
 
-colorscheme ayu
-
+colorscheme solarized8_high
 "=============================================================================
 " Mappings
 "=============================================================================
