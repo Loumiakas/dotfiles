@@ -113,6 +113,13 @@ nnoremap <silent><leader>4  :set list!<CR>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<CR>
 nnoremap <silent><leader>hl :set hlsearch!<CR>
 
+if &diff
+    set cursorline
+    nnoremap <leader>do :diffoff<CR>
+    nnoremap <leader>dt :diffthis<CR>
+    nnoremap <leader>du :diffupdate<CR>
+endif
+
 if has('clipboard') " clipboard buffer shortcuts
     vnoremap <leader>y "+y
     nnoremap <leader>Y "+yg_
