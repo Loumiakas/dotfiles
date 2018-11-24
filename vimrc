@@ -52,7 +52,7 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
-set colorcolumn=79
+set colorcolumn=0
 set copyindent
 set display+=lastline
 set expandtab
