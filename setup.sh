@@ -48,5 +48,6 @@ ln -s $SCRIPT_HOME/tmux.conf $HOME/.tmux.conf
 ln -s $SCRIPT_HOME/tmux-macos.conf $HOME/.tmux-macos.conf
 ln -s $SCRIPT_HOME/tmux-linux.conf $HOME/.tmux-linux.conf
 ln -s $SCRIPT_HOME/gdbinit $HOME/.gdbinit
+ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
 
 update_repos
