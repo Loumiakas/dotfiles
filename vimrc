@@ -115,9 +115,19 @@ nnoremap <silent><leader>hl :set hlsearch!<CR>
 
 if &diff
     set cursorline
-    nnoremap <leader>do :diffoff<CR>
-    nnoremap <leader>dt :diffthis<CR>
+    nnoremap <silent><leader><space> :call DiffModeToggle()<CR>
     nnoremap <leader>du :diffupdate<CR>
+
+    let g:is_diff_mode = 1
+    function! DiffModeToggle()
+        if g:is_diff_mode
+            diffoff
+            let g:is_diff_mode = 0
+        else
+            diffthis
+            let g:is_diff_mode = 1
+        endif
+    endfunction
 endif
 
 if has('clipboard') " clipboard buffer shortcuts
