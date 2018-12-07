@@ -7,7 +7,12 @@
 
 [diff]
 	tool = vimdiff
+
 [merge]
 	tool = vimdiff
+
 [mergetool]
 	keepBackup = false
+
+[core]
+    excludesfile = ~/.gitignore

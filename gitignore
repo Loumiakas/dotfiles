@@ -1,0 +1,12 @@
+# Generated files used for code completion
+tags
+cscope.out
+cscope.files
+
+# OSX specific
+.DS_Store
+
+# Code coverage
+*.gcda
+*.gcno
+**/lcov/**
