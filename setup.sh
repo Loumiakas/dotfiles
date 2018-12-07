@@ -3,7 +3,7 @@ SCRIPT_HOME=$(dirname $0 | while read a; do cd $a && pwd && break; done)
 
 function clone_plugin()
 {
-    repo=$(echo $1 | awk -F' /' '{print $2}')
+    repo=$(echo $1 | awk -F'/' '{print $2}')
     if [ ! -d "$SCRIPT_HOME/zsh_plugins" ]; then
         mkdir $SCRIPT_HOME/zsh_plugins
     fi
