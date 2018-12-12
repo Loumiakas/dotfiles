@@ -115,6 +115,9 @@ nnoremap <silent><leader>hl :set hlsearch!<CR>
 
 if &diff
     set cursorline
+    set diffopt+=algorithm:patience
+    set diffopt+=indent-heuristic
+    
     nnoremap <silent><leader><space> :call DiffModeToggle()<CR>
     nnoremap <leader>du :diffupdate<CR>
 
