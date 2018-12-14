@@ -99,26 +99,27 @@ colorscheme ayu
 " Mappings
 "=============================================================================
 cnoremap w!! w !sudo tee > /dev/null %
-inoremap jj <ESC>
-nnoremap <C-P> :find<SPACE>
-nnoremap <PAGEUP> <C-U>
-nnoremap <PAGEDOWN> <C-D>
+inoremap jj <esc>
+nnoremap <c-p> :find<space>
+nnoremap <pageup> <c-u>
+nnoremap <pagedown> <c-d>
 
-nnoremap <SILENT><LEADER>1  :%substitute/\s\+$//g<CR>
-nnoremap <SILENT><LEADER>2  :call explorer#ToggleExplorer()<CR>
-nnoremap <SILENT><LEADER>3  :TagbarToggle<CR>
-nnoremap <SILENT><LEADER>5  :set cursorline!<CR>
-nnoremap <SILENT><LEADER>4  :set list!<CR>
-nnoremap <SILENT><LEADER>6  :call colorcolumn#ToggleColorColumn()<CR>
-nnoremap <SILENT><LEADER>hl :set hlsearch!<CR>
+nnoremap <silent><leader>1  :%substitute/\s\+$//g<cr>
+nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<cr>
+nnoremap <silent><leader>3  :TagbarToggle<cr>
+nnoremap <silent><leader>5  :set cursorline!<cr>
+nnoremap <silent><leader>4  :set list!<cr>
+nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
+nnoremap <silent><leader>hl :set hlsearch!<cr>
 
 if &diff
+    colorscheme gruvbox
     set cursorline
     set diffopt+=algorithm:patience
     set diffopt+=indent-heuristic
 
-    nnoremap <SILENT><LEADER><SPACE> :call DiffModeToggle()<CR>
-    nnoremap <LEADER>du :diffupdate<CR>
+    nnoremap <silent><leader><space> :call DiffModeToggle()<cr>
+    nnoremap <leader>du :diffupdate<cr>
 
     let g:is_diff_mode = 1
     function! DiffModeToggle()
@@ -133,17 +134,17 @@ if &diff
 endif
 
 if has('clipboard') " clipboard buffer shortcuts
-    vnoremap <LEADER>y "+y
-    nnoremap <LEADER>Y "+yg_
-    nnoremap <LEADER>y "+y
-    nnoremap <LEADER>p "+p
-    nnoremap <LEADER>P "+P
-    vnoremap <LEADER>p "+p
-    vnoremap <LEADER>P "+P
+    vnoremap <leader>y "+y
+    nnoremap <leader>Y "+yg_
+    nnoremap <leader>y "+y
+    nnoremap <leader>p "+p
+    nnoremap <leader>P "+P
+    vnoremap <leader>p "+p
+    vnoremap <leader>P "+P
 endif
 
 " better quickfix window navigation
-nnoremap <SILENT>[q :cprev<CR>
-nnoremap <SILENT>]q :cnext<CR>
-nnoremap <SILENT>[Q :cfirst<CR>
-nnoremap <SILENT>]Q :clast<CR>
+nnoremap <silent>[q :cprev<cr>
+nnoremap <silent>]q :cnext<cr>
+nnoremap <silent>[Q :cfirst<cr>
+nnoremap <silent>]Q :clast<cr>
