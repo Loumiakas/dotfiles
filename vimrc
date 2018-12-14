@@ -25,14 +25,13 @@ autocmd VimResized * wincmd =
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
+Plug 'ayu-theme/ayu-vim'
 Plug 'brookhong/cscope.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plug 'lifepillar/vim-solarized8'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'vim-scripts/Tagbar'
 Plug 'wellle/targets.vim'
 call plug#end()
@@ -58,7 +57,6 @@ set display+=lastline
 set expandtab
 set hidden
 set ignorecase
-set smartcase
 set incsearch
 set laststatus=2
 set lazyredraw
@@ -72,6 +70,7 @@ set ruler
 set scrolloff=10
 set shiftwidth=4
 set showcmd
+set smartcase
 set smarttab
 set splitbelow
 set splitright
@@ -95,31 +94,31 @@ else
     endif
 endif
 
-colorscheme solarized8_high
+colorscheme ayu
 "=============================================================================
 " Mappings
 "=============================================================================
 cnoremap w!! w !sudo tee > /dev/null %
 inoremap jj <ESC>
-nnoremap <C-P> :find 
-nnoremap <PageUp> <C-U>
-nnoremap <PageDown> <C-D>
+nnoremap <C-P> :find<SPACE>
+nnoremap <PAGEUP> <C-U>
+nnoremap <PAGEDOWN> <C-D>
 
-nnoremap <silent><leader>1  :%substitute/\s\+$//g<CR>
-nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<CR>
-nnoremap <silent><leader>3  :TagbarToggle<CR>
-nnoremap <silent><leader>5  :set cursorline!<CR>
-nnoremap <silent><leader>4  :set list!<CR>
-nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<CR>
-nnoremap <silent><leader>hl :set hlsearch!<CR>
+nnoremap <SILENT><LEADER>1  :%substitute/\s\+$//g<CR>
+nnoremap <SILENT><LEADER>2  :call explorer#ToggleExplorer()<CR>
+nnoremap <SILENT><LEADER>3  :TagbarToggle<CR>
+nnoremap <SILENT><LEADER>5  :set cursorline!<CR>
+nnoremap <SILENT><LEADER>4  :set list!<CR>
+nnoremap <SILENT><LEADER>6  :call colorcolumn#ToggleColorColumn()<CR>
+nnoremap <SILENT><LEADER>hl :set hlsearch!<CR>
 
 if &diff
     set cursorline
     set diffopt+=algorithm:patience
     set diffopt+=indent-heuristic
-    
-    nnoremap <silent><leader><space> :call DiffModeToggle()<CR>
-    nnoremap <leader>du :diffupdate<CR>
+
+    nnoremap <SILENT><LEADER><SPACE> :call DiffModeToggle()<CR>
+    nnoremap <LEADER>du :diffupdate<CR>
 
     let g:is_diff_mode = 1
     function! DiffModeToggle()
@@ -134,17 +133,17 @@ if &diff
 endif
 
 if has('clipboard') " clipboard buffer shortcuts
-    vnoremap <leader>y "+y
-    nnoremap <leader>Y "+yg_
-    nnoremap <leader>y "+y
-    nnoremap <leader>p "+p
-    nnoremap <leader>P "+P
-    vnoremap <leader>p "+p
-    vnoremap <leader>P "+P
+    vnoremap <LEADER>y "+y
+    nnoremap <LEADER>Y "+yg_
+    nnoremap <LEADER>y "+y
+    nnoremap <LEADER>p "+p
+    nnoremap <LEADER>P "+P
+    vnoremap <LEADER>p "+p
+    vnoremap <LEADER>P "+P
 endif
 
 " better quickfix window navigation
-nnoremap <silent>[q :cprev<CR>
-nnoremap <silent>]q :cnext<CR>
-nnoremap <silent>[Q :cfirst<CR>
-nnoremap <silent>]Q :clast<CR>
+nnoremap <SILENT>[q :cprev<CR>
+nnoremap <SILENT>]q :cnext<CR>
+nnoremap <SILENT>[Q :cfirst<CR>
+nnoremap <SILENT>]Q :clast<CR>
