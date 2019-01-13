@@ -30,6 +30,7 @@ if [[ -z $TMUX ]]; then
     export TERM="xterm-256color"
 fi
 
+# check if tmux clipboard dependencies are present
 cmd="reattach-to-user-namespace"
 if [[ $OSTYPE =~ "darwin" ]] && ! type $cmd > /dev/null; then
     echo "Failed to auto-start tmux - $cmd is not installed"
@@ -38,6 +39,12 @@ else
     export ZSH_TMUX_AUTOSTART=true
 fi
 
+# enable anaconda, if available
+if [ -d "$HOME/.anaconda" ]; then
+    source $HOME/.anaconda/etc/profile.d/conda.sh
+fi
+
+# enable workflow scripts, if available
 if [ -f ".workflow.sh" ]; then
     source .workflow.sh
 fi
