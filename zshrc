@@ -6,7 +6,7 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -e
-setopt appendhistory
+setopt share_history
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit && compinit
 #=============================================================================
