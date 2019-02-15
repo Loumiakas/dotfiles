@@ -60,7 +60,7 @@ alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
 alias sudo='sudo '
-alias update='brew update; brew upgrade --all; brew cask upgrade; brew cleanup'
+alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
