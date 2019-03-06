@@ -5,10 +5,12 @@ syntax on
 " Autocommands
 "=============================================================================
 " download plugin manager, if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if has('gui_running') == 0
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 endif
 " statusline plugin
 autocmd BufNewFile,BufRead * call statusline#SetStatusLine()
@@ -31,6 +33,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/Tagbar'
 Plug 'wellle/targets.vim'
@@ -40,8 +43,8 @@ call plug#end()
 " Plugin Settings
 "=============================================================================
 let g:tagbar_autoclose=1
-let g:gruvbox_contrast_light="soft"
-let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_contrast_light='soft'
+let g:gruvbox_contrast_dark='hard'
 
 "=============================================================================
 " Settings
@@ -60,7 +63,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:¬
+set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:$
 set mouse=a
 set noswapfile
 set number
@@ -86,6 +89,15 @@ set wildmode=longest:full,full
 if has('gui_running')
     set guioptions-=r
     set guioptions-=L
+    set guioptions-=T
+    set guioptions-=m
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 12
+    elseif has("gui_macvim")
+        set guifont=Menlo\ Regular:h14
+    elseif has("gui_win32")
+        set guifont=Consolas:h11:cANSI
+    endif
 else
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
