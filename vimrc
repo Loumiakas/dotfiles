@@ -33,10 +33,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Tagbar'
 Plug 'wellle/targets.vim'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 "=============================================================================
@@ -87,6 +88,7 @@ set wildmode=longest:full,full
 
 
 if has('gui_running')
+    colorscheme solarized8_flat
     set guioptions-=r
     set guioptions-=L
     set guioptions-=T
@@ -96,9 +98,11 @@ if has('gui_running')
     elseif has("gui_macvim")
         set guifont=Menlo\ Regular:h14
     elseif has("gui_win32")
-        set guifont=Consolas:h11:cANSI
+        set guifont=Consolas:h10:cANSI
     endif
+    map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
+    colorscheme gruvbox
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
         set t_8b=[48;2;%lu;%lu;%lum
@@ -106,7 +110,6 @@ else
     endif
 endif
 
-colorscheme ayu
 "=============================================================================
 " Mappings
 "=============================================================================
