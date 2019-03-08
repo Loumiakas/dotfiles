@@ -102,7 +102,7 @@ if has('gui_running')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme gruvbox
+    colorscheme solarized8_flat
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
         set t_8b=[48;2;%lu;%lu;%lum
