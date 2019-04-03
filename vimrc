@@ -126,6 +126,7 @@ nnoremap <silent><leader>5  :set cursorline!<cr>
 nnoremap <silent><leader>4  :set list!<cr>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
 nnoremap <silent><leader>hl :set hlsearch!<cr>
+nnoremap <silent><leader>sp :set spell!<cr>
 
 if &diff
     colorscheme gruvbox
