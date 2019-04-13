@@ -56,6 +56,7 @@ alias ....='cd ../../../../'
 alias ...='cd ../../../'
 alias ..='cd ..'
 alias grep='grep --color=auto'
+alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
@@ -69,6 +70,9 @@ source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
 source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#=============================================================================
+# Functions
+#=============================================================================
 
 # disable hooks that slow down performance
 add-zsh-hook -d chpwd   chpwd_update_git_vars
