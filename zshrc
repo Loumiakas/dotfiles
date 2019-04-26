@@ -15,7 +15,7 @@ autoload -U compinit && compinit
 if [[ -z $TMUX ]]; then
     export ANDROID_HOME=$HOME/Library/android/sdk
     export CLICOLOR=1
-    export EDITOR="vim"
+    export EDITOR=/usr/local/bin/vim
     export HISTFILE=$HOME/.zsh_history
     export LESS_TERMCAP_mb=$'\e[1;32m'
     export LESS_TERMCAP_md=$'\e[1;32m'
