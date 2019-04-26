@@ -32,7 +32,6 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'morhetz/gruvbox'
 Plug 'brookhong/cscope.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
