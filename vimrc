@@ -131,6 +131,7 @@ if &diff
     set cursorline
     set diffopt+=algorithm:patience
     set diffopt+=indent-heuristic
+    set diffopt+=vertical,filler,internal,context:3
 
     nnoremap <silent><leader><space> :call DiffModeToggle()<cr>
     nnoremap <leader>du :diffupdate<cr>
