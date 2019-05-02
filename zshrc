@@ -40,14 +40,13 @@ else
 fi
 
 # enable anaconda, if available
-if [ -d "$HOME/.anaconda" ]; then
-    source $HOME/.anaconda/etc/profile.d/conda.sh
-fi
+[ -d $HOME/.anaconda ] && source $HOME/.anaconda/etc/profile.d/conda.sh
 
 # enable workflow scripts, if available
-if [ -f ".workflow.sh" ]; then
-    source .workflow.sh
-fi
+[ -f .workflow.sh ] && source .workflow.sh
+
+# enable FZF, if available
+[ -f .fzf.zsh ] && source .fzf.zsh
 #=============================================================================
 # Aliases
 #=============================================================================
@@ -78,5 +77,3 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
 add-zsh-hook -d precmd  precmd_update_git_vars
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
