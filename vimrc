@@ -83,6 +83,9 @@ set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
 
+if has('mouse_sgr')
+    set ttymouse=sgr
+endif
 
 if has('gui_running')
     colorscheme moonlight
