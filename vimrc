@@ -13,8 +13,7 @@ if has('gui_running') == 0
     endif
 endif
 " statusline plugin
-autocmd BufNewFile,BufRead * call statusline#SetStatusLine()
-autocmd FileType cpp,c call statusline#SetStatusLineCpp()
+autocmd FileType,BufEnter * call statusline#SetStatusLine()
 " when editing a file, always jump to the last cursor position
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line ("'\"") <= line("$") |
