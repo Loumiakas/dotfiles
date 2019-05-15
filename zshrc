@@ -72,7 +72,15 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
 # Functions
 #=============================================================================
-
+function gtags {
+    if [ $1 = 'cpp' ]; then
+        echo "Generating tags using C/C++ configuration..."
+        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -h=".c.cc.c++.cxx.cpp.cxx.h.hpp.C"
+    else
+        echo "Generating tags using default configuration..."
+        ctags -R
+    fi
+}
 # disable hooks that slow down performance
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
