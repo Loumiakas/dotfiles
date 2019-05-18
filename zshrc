@@ -73,9 +73,9 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Functions
 #=============================================================================
 function gtags {
-    if [ $1 = 'cpp' ]; then
+    if [[ $1 = 'cpp' ]]; then
         echo "Generating tags using C/C++ configuration..."
-        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -h=".c.cc.c++.cxx.cpp.cxx.h.hpp.C"
+        ctags -R --c++-kinds=+p --fields=+iaS --extras=+q -h=".c.cc.c++.cxx.cpp.cxx.h.hpp.C"
     else
         echo "Generating tags using default configuration..."
         ctags -R
