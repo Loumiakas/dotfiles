@@ -35,6 +35,7 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Tagbar'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 "=============================================================================
