@@ -176,5 +176,3 @@ nnoremap <silent>[q :cprev<cr>
 nnoremap <silent>]q :cnext<cr>
 nnoremap <silent>[Q :cfirst<cr>
 nnoremap <silent>]Q :clast<cr>
-
-autocmd FileType cpp setlocal commentstring=//\ \ \ \ \ %s
