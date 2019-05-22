@@ -4,23 +4,34 @@ syntax on
 "=============================================================================
 " Autocommands
 "=============================================================================
-" download plugin manager, if not found
-if has('gui_running') == 0
-    if empty(glob('~/.vim/autoload/plug.vim'))
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+augroup editor_settings
+    autocmd!
+    " Download plugin manager, if it is not installed on the system
+    if has('gui_running') == 0
+        if empty(glob('~/.vim/autoload/plug.vim'))
+            silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+             \ https://raw.githubusercontent.com/junegunn/vim-plug/master/
+                                                                     \plug.vim
+            autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
     endif
-endif
-" statusline plugin
-autocmd FileType,BufEnter * call statusline#SetStatusLine()
-" when editing a file, always jump to the last cursor position
-autocmd BufReadPost *
-            \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-            \   exe "normal g'\"" |
-            \ endif
-" automatically resize windows on change
-autocmd VimResized * wincmd =
+    " when editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \   exe "normal g'\"" |
+                \ endif
+    " automatically resize windows on change
+    autocmd VimResized * wincmd =
+    " statusline plugin
+    autocmd FileType,BufEnter * call statusline#SetStatusLine()
+augroup END
+
+augroup filetype_settings
+    autocmd!
+    " remove external characters that should not be present in C/C++ files
+    autocmd FileType c,cpp,h,hpp autocmd BufWritePre * call 
+                                                 \ generic#StripWhitespaceCR()
+augroup END
 
 "=============================================================================
 " Plugins
@@ -120,7 +131,6 @@ nnoremap <c-p> :find<space>
 nnoremap <pageup> <c-u>
 nnoremap <pagedown> <c-d>
 
-nnoremap <silent><leader>1  :%substitute/\s\+$//g<cr>
 nnoremap <silent><leader>2  :call explorer#ToggleExplorer()<cr>
 nnoremap <silent><leader>3  :TagbarToggle<cr>
 nnoremap <silent><leader>5  :set cursorline!<cr>
@@ -166,3 +176,5 @@ nnoremap <silent>[q :cprev<cr>
 nnoremap <silent>]q :cnext<cr>
 nnoremap <silent>[Q :cfirst<cr>
 nnoremap <silent>]Q :clast<cr>
+
+autocmd FileType cpp setlocal commentstring=//\ \ \ \ \ %s
