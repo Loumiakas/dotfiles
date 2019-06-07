@@ -16,3 +16,6 @@
 
 [core]
     excludesfile = ~/.gitignore
+[user]
+	name = Ruslanas Laskovas
+	email = loumiakas@gmail.com
