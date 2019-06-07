@@ -16,10 +16,11 @@ augroup editor_settings
         endif
     endif
     " when editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-                \   exe "normal g'\"" |
-                \ endif
+     autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
     " automatically resize windows on change
     autocmd VimResized * wincmd =
     " statusline plugin
@@ -30,7 +31,6 @@ augroup filetype_settings
     autocmd!
     " remove external characters that should not be present in C/C++ files
     autocmd FileType c,cpp,h,hpp autocmd BufWritePre * call 
-                                                 \ generic#StripWhitespaceCR()
 augroup END
 
 "=============================================================================
@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'Loumiakas/moonlight-vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'brookhong/cscope.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
