@@ -30,17 +30,19 @@ augroup END
 augroup filetype_settings
     autocmd!
     " remove external characters that should not be present in C/C++ files
-    autocmd FileType c,cpp,h,hpp autocmd BufWritePre * call 
+    autocmd FileType c,cpp,h,hpp autocmd BufWritePre * call
+                                                 \ generic#StripWhitespaceCR()
 augroup END
 
 "=============================================================================
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
+Plug 'Loumiakas/moonlight-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'Loumiakas/moonlight-vim'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'szorfein/fromthehell.vim'
+Plug 'whatyouhide/vim-gotham'
 Plug 'morhetz/gruvbox'
 Plug 'brookhong/cscope.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
