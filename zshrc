@@ -27,6 +27,7 @@ if [[ -z $TMUX ]]; then
     export LESS_TERMCAP_ue=$'\e[0m'
     export LESS_TERMCAP_us=$'\e[1;4;31m'
     export PATH=$PATH:$ANDROID_HOME/platform-tools
+    export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
     export TERM="xterm-256color"
 fi
 
@@ -72,6 +73,7 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
 # Functions
 #=============================================================================
+# function to generate ctags
 function gtags {
     if [[ $1 = 'cpp' ]]; then
         echo "Generating tags using C/C++ configuration..."
@@ -81,7 +83,16 @@ function gtags {
         ctags -R
     fi
 }
+# function to kill a process based on the name
+function pskill {
+    if [ -z $1 ]; then
+       echo 'pskill <process_name>'
+       return 1
+    fi
+    ps -ef | grep $1 | grep -v grep | awk -F ' ' '{print $2}' | xargs kill -9
+}
 # disable hooks that slow down performance
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
 add-zsh-hook -d precmd  precmd_update_git_vars
+
