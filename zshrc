@@ -44,10 +44,10 @@ fi
 [ -d $HOME/.anaconda ] && source $HOME/.anaconda/etc/profile.d/conda.sh
 
 # enable workflow scripts, if available
-[ -f .workflow.sh ] && source .workflow.sh
+[ -f $HOME/.workflow.sh ] && source $HOME/.workflow.sh
 
 # enable FZF, if available
-[ -f .fzf.zsh ] && source .fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 #=============================================================================
 # Aliases
 #=============================================================================
@@ -56,10 +56,11 @@ alias ....='cd ../../../../'
 alias ...='cd ../../../'
 alias ..='cd ..'
 alias grep='grep --color=auto'
-alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
+alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
+alias ssh='ssh -F $HOME/.ssh/config '
 alias sudo='sudo '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
 #=============================================================================
