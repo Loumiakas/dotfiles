@@ -12,24 +12,22 @@ autoload -U compinit && compinit
 #=============================================================================
 # Globals
 #=============================================================================
-if [[ -z $TMUX ]]; then
-    export ANDROID_HOME=$HOME/Library/android/sdk
-    export CLICOLOR=1
-    export EDITOR=/usr/local/bin/vim
-    export HISTFILE=$HOME/.zsh_history
-    export LESS_TERMCAP_mb=$'\e[1;32m'
-    export LESS_TERMCAP_md=$'\e[1;32m'
-    export LESS_TERMCAP_me=$'\e[0m'
-    export LESS_TERMCAP_se=$'\E[39;49m'
-    export LESS_TERMCAP_se=$'\e[0m'
-    export LESS_TERMCAP_so=$'\E[30;43m'
-    export LESS_TERMCAP_so=$'\e[01;33m'
-    export LESS_TERMCAP_ue=$'\e[0m'
-    export LESS_TERMCAP_us=$'\e[1;4;31m'
-    export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
-    export TERM="xterm-256color"
-fi
+export ANDROID_HOME=$HOME/Library/android/sdk
+export CLICOLOR=1
+export EDITOR=/usr/local/bin/vim
+export HISTFILE=$HOME/.zsh_history
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\E[39;49m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\E[30;43m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
+export TERM="xterm-256color"
 
 # check if tmux clipboard dependencies are present
 cmd="reattach-to-user-namespace"
