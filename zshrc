@@ -60,6 +60,7 @@ alias ll='ls -lrth'
 alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias ssh='ssh -F $HOME/.ssh/config '
 alias sudo='sudo '
+alias tx='tmuxp '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
 #=============================================================================
 # Plugins and Themes
