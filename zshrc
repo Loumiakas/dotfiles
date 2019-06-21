@@ -28,6 +28,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
 
 # check if tmux clipboard dependencies are present
 cmd="reattach-to-user-namespace"
@@ -58,7 +59,6 @@ alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
 alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
-alias ssh='ssh -F $HOME/.ssh/config '
 alias sudo='sudo '
 alias tx='tmuxp '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
