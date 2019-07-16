@@ -62,6 +62,7 @@ alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias sudo='sudo '
 alias tx='tmuxp '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
+alias vi='vim'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
