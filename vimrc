@@ -43,7 +43,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'szorfein/fromthehell.vim'
 Plug 'whatyouhide/vim-gotham'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'brookhong/cscope.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'sheerun/vim-polyglot'
