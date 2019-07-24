@@ -30,15 +30,6 @@ export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
 
-# check if tmux clipboard dependencies are present
-cmd="reattach-to-user-namespace"
-if [[ $OSTYPE =~ "darwin" ]] && ! type $cmd > /dev/null; then
-    echo "Failed to auto-start tmux - $cmd is not installed"
-    export ZSH_TMUX_AUTOSTART=false
-else
-    export ZSH_TMUX_AUTOSTART=true
-fi
-
 # enable anaconda, if available
 [ -d $HOME/.anaconda ] && source $HOME/.anaconda/etc/profile.d/conda.sh
 
