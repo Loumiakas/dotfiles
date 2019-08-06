@@ -40,8 +40,8 @@ clone_plugin "zsh-users/zsh-completions"
 clone_plugin "zsh-users/zsh-autosuggestions"
 
 # syslink configuration files
-ln -s $SCRIPT_HOME/zsh zsh_plugins
 ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
+ln -s $SCRIPT_HOME/zsh zsh_plugins
 ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
 ln -s $SCRIPT_HOME/vimrc $HOME/.vimrc
 ln -s $SCRIPT_HOME/tmux.conf $HOME/.tmux.conf
