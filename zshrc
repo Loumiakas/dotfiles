@@ -12,7 +12,7 @@ autoload -U compinit && compinit
 #=============================================================================
 # Globals
 #=============================================================================
-export ANDROID_HOME=$HOME/Library/android/sdk
+export ANDROID_HOME=/usr/local/Cellar/bin:$HOME/Library/android/sdk
 export CLICOLOR=1
 export EDITOR=/usr/local/bin/vim
 export HISTFILE=$HOME/.zsh_history
