@@ -102,7 +102,7 @@ if has('mouse_sgr')
     set ttymouse=sgr
 endif
 
-if has('gui_running')
+if has('gui_running') || exists('g:GuiLoaded')
     colorscheme moonlight
     set guioptions-=r
     set guioptions-=L
@@ -113,7 +113,9 @@ if has('gui_running')
     elseif has("gui_macvim")
         set guifont=Menlo\ Regular:h14
     elseif has("gui_win32")
-        set guifont=Consolas:h10:cANSI
+        set guifont=gohufont-14:h11
+    elseif exists('g:GuiLoaded')
+        GuiFont! gohufont-14:h11
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
