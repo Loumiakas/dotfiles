@@ -29,7 +29,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
-
 # enable anaconda, if available
 [ -d $HOME/.anaconda ] && source $HOME/.anaconda/etc/profile.d/conda.sh
 
@@ -46,6 +45,7 @@ alias ....='cd ../../../../'
 alias ...='cd ../../../'
 alias ..='cd ..'
 alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
@@ -87,4 +87,3 @@ function pskill {
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
 add-zsh-hook -d precmd  precmd_update_git_vars
-
