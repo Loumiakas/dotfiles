@@ -40,6 +40,8 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
 #=============================================================================
 # Aliases
 #=============================================================================
+[[ $(uname) != "Darwin" ]] && alias ls='ls --color=auto'
+
 alias .....='cd ../../../../'
 alias ....='cd ../../../../'
 alias ...='cd ../../../'
@@ -53,8 +55,6 @@ alias sudo='sudo '
 alias tx='tmuxp '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
 alias vi='vim'
-
-[[ $(uname) != "Darwin" ]] && alias ls='ls --color=auto'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
