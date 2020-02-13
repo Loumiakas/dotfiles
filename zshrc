@@ -45,7 +45,6 @@ alias ....='cd ../../../../'
 alias ...='cd ../../../'
 alias ..='cd ..'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -lrtah'
 alias ll='ls -lrth'
@@ -54,6 +53,8 @@ alias sudo='sudo '
 alias tx='tmuxp '
 alias update='brew update; brew upgrade; brew cask upgrade; brew cleanup'
 alias vi='vim'
+
+[[ $(uname) != "Darwin" ]] && alias ls='ls --color=auto'
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
