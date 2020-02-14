@@ -39,6 +39,7 @@ augroup END
 "=============================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'Loumiakas/moonlight-vim'
+Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'szorfein/fromthehell.vim'
