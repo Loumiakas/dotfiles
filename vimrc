@@ -42,6 +42,9 @@ Plug 'Loumiakas/moonlight-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
 Plug 'szorfein/fromthehell.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'gruvbox-community/gruvbox'
@@ -120,7 +123,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme moonlight
+    colorscheme badwolf
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
         set t_8b=[48;2;%lu;%lu;%lum
