@@ -13,6 +13,8 @@ autoload -U compinit && compinit
 # Globals
 #=============================================================================
 export ANDROID_HOME=/usr/local/Cellar/bin:$HOME/Library/android/sdk
+export BREW_CASKROOM=/usr/local/Caskroom
+export BREW_CELLAR=/usr/local/Cellar
 export CLICOLOR=1
 export EDITOR=/usr/local/bin/vim
 export HISTFILE=$HOME/.zsh_history
@@ -29,8 +31,13 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
+
 # enable anaconda, if available
-[ -d $HOME/.anaconda ] && source $HOME/.anaconda/etc/profile.d/conda.sh
+if [[ $(uname) == "Darwin" ]]; then
+    source $BREW_CASKROOM/miniconda/base/etc/profile.d/conda.sh
+else
+    source $HOME/.anaconda/etc/profile.d/conda.sh
+fi
 
 # enable workflow scripts, if available
 [ -f $HOME/.workflow.sh ] && source $HOME/.workflow.sh
