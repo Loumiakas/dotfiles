@@ -46,18 +46,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'Yggdroot/indentLine'
-Plug 'ayu-theme/ayu-vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'tomasr/molokai'
-Plug 'sjl/badwolf'
-Plug 'szorfein/fromthehell.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'gruvbox-community/gruvbox'
 Plug 'brookhong/cscope.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Tagbar'
 Plug 'davidhalter/jedi-vim'
 call plug#end()
