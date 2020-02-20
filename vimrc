@@ -44,6 +44,7 @@ command! MakeTags !ctags -R .
 "=============================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'Loumiakas/moonlight-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'lifepillar/vim-solarized8'
