@@ -34,9 +34,16 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
 
 # enable anaconda, if available
 if [[ $(uname) == "Darwin" ]]; then
-    source $BREW_CASKROOM/miniconda/base/etc/profile.d/conda.sh
+    conda_dir=$BREW_CASKROOM/miniconda/base/etc/profile.d/conda.sh
+    if [ -d $conda_dir ]; then 
+        source $conda_dir
+    fi
 else
-    source $HOME/.anaconda/etc/profile.d/conda.sh
+    conda_dir=$HOME/.anaconda/etc/profile.d/conda.sh
+    if [ -d $conda_dir ]; then 
+        source $conda_dir
+    fi
+
 fi
 
 # enable workflow scripts, if available
