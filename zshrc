@@ -27,7 +27,7 @@ export LESS_TERMCAP_so=$'\E[30;43m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$HOME/.local/bin
 export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
