@@ -56,6 +56,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/Tagbar'
 Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/ListToggle'
+Plug 'fcpg/vim-farout'
 call plug#end()
 
 "=============================================================================
@@ -110,7 +111,7 @@ if has('mouse_sgr')
 endif
 
 if has('gui_running') || exists('g:GuiLoaded')
-    colorscheme moonlight
+    colorscheme farout
     set guioptions-=r
     set guioptions-=L
     set guioptions-=T
@@ -126,7 +127,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme molokai
+    colorscheme farout
 
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
