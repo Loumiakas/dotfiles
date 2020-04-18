@@ -1,0 +1,16 @@
+Font=Terminus
+Transparency=low
+OpaqueWhenFocused=no
+FontHeight=11
+ThemeFile=xterm
+CursorType=underscore
+Scrollbar=none
+CursorBlinks=no
+AllowBlinking=yes
+FontSmoothing=full
+BoldAsFont=no
+ScrollbackLines=50000
+BoldAsColour=yes
+FontWeight=400
+FontIsBold=no
+SuppressSGR=1
