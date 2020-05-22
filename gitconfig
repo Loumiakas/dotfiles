@@ -6,18 +6,18 @@
     shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 
 [diff]
-	tool = bc3
+    tool = bc3
 
 [merge]
-	tool = bc3
+    tool = bc3
 
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 
 [core]
     excludesfile = ~/.gitignore
 [user]
-	name = Ruslan Laskov
-	email = ruslan.laskov@aciworldwide.com
+    name = Ruslan Laskov
+    email = ruslan.laskov@aciworldwide.com
 [mergetool "bc3"]
-	trustExitCode = true
+    trustExitCode = true
