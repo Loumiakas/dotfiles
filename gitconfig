@@ -6,10 +6,10 @@
     shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 
 [diff]
-	tool = vimdiff
+	tool = bc3
 
 [merge]
-	tool = vimdiff
+	tool = bc3
 
 [mergetool]
 	keepBackup = false
@@ -19,3 +19,5 @@
 [user]
 	name = Ruslan Laskov
 	email = ruslan.laskov@aciworldwide.com
+[mergetool "bc3"]
+	trustExitCode = true
