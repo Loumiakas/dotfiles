@@ -50,6 +50,9 @@ ln -s $SCRIPT_HOME/tmux-linux.conf $HOME/.tmux-linux.conf
 ln -s $SCRIPT_HOME/gdbinit $HOME/.gdbinit
 ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
 ln -s $SCRIPT_HOME/gitignore $HOME/.gitignore
+if [ ! -d $HOME/.ssh ]; then
+    mkdir $HOME/.ssh
+fi
 ln -s $SCRIPT_HOME/ssh/config $HOME/.ssh/config
 
 update_repos
