@@ -33,7 +33,7 @@ zsh_path() {
   for dir (${(s:/:)PWD}); do
     if [[ $i -eq 1 ]]; then
       if [[ $colors -ge 256 ]]; then
-        print -Pn "%F{065}%B /%b"
+        print -Pn "%F{blue}%B /%b"
       else
         print -Pn "\e[31;1m /"
       fi
@@ -48,7 +48,7 @@ zsh_path() {
     (( i++ ))
 
     if [[ $colors -ge 256 ]]; then
-      print -Pn "%F{065}$dir"
+      print -Pn "%F{blue}$dir"
     else
       print -Pn "%F{blue}$dir"
     fi
