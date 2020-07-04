@@ -141,6 +141,7 @@ endif
 "=============================================================================
 cnoremap w!! w !sudo tee > /dev/null %
 inoremap jj <esc>
+nnoremap gp `[v`]
 nnoremap <c-p> :find<space>
 nnoremap <pageup> <c-u>
 nnoremap <pagedown> <c-d>
