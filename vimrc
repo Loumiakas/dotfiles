@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'relastle/bluewery.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'whatyouhide/vim-gotham'
@@ -111,7 +112,7 @@ if has('mouse_sgr')
 endif
 
 if has('gui_running') || exists('g:GuiLoaded')
-    colorscheme gotham256
+    colorscheme challenger_deep
     set guioptions-=r
     set guioptions-=L
     set guioptions-=T
@@ -127,7 +128,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme gotham256
+    colorscheme challenger_deep
 
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
@@ -153,6 +154,15 @@ nnoremap <silent><leader>4  :set list!<cr>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
 nnoremap <silent><leader>hl :set hlsearch!<cr>
 nnoremap <silent><leader>sp :set spell!<cr>
+
+if v:version >= 802
+    map <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(
+                \systemlist("cd " . shellescape(fnamemodify(resolve(
+                \expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " .
+                \shellescape(line("v") . "," . line(".") . ":" . resolve(
+                \expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", 
+                \"wrap": 0 })), "&filetype", "git")<CR>
+endif
 
 if &diff
     colorscheme gruvbox
