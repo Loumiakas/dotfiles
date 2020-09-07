@@ -43,6 +43,7 @@ command! MakeTags !ctags -R .
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
+Plug 'Rigellute/rigel'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
@@ -128,7 +129,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme challenger_deep
+    colorscheme rigel
 
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
