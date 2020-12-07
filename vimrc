@@ -72,6 +72,7 @@ call plug#end()
 "=============================================================================
 " Plugin Settings
 "=============================================================================
+let g:csv_no_conceal = 1
 let g:tagbar_autoclose=1
 let g:tagbar_sort=0
 let g:gruvbox_contrast_light='soft'
@@ -137,7 +138,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme rigel
+    colorscheme moonlight
 
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
@@ -170,7 +171,7 @@ if v:version >= 802
                 \shellescape(line("v") . "," . line(".") . ":" . resolve(
                 \expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft",
                 \"wrap": 0 })), "&filetype", "git")<CR>
-endif
+endi
 
 if &diff
     colorscheme gruvbox

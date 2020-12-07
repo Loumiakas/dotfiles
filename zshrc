@@ -55,7 +55,7 @@ fi
 
 # enable FZF, if available
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-export FZF_DEFAULT_OPTS="--exact"
+export FZF_DEFAULT_OPTS="--exact --bind='F2:toggle-preview'"
 if [ -x "$(command -v bat)" ]; then
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview 'bat --color=always\
                                                         --style=header,grid\
