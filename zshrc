@@ -9,10 +9,15 @@ bindkey -e
 setopt share_history
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit && compinit
+
+# enable editing command in an editor
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 #=============================================================================
 # Globals
 #=============================================================================
-export ANDROID_HOME=/usr/local/Cellar/bin:$HOME/Library/android/sdk
+export ANDROID_HOME=$HOME/Library/android/sdk/platform-tools:$HOME/.platform-tools
 export BREW_CASKROOM=/usr/local/Caskroom
 export BREW_CELLAR=/usr/local/Cellar
 export CLICOLOR=1
@@ -27,7 +32,7 @@ export LESS_TERMCAP_so=$'\E[30;43m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$HOME/.local/bin
+export PATH=$PATH:$ANDROID_HOME:$HOME/.local/bin
 export SSLKEYLOGFILE=$HOME/.ssh_keylogs/ssh.log
 export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23,underline"
@@ -43,7 +48,6 @@ else
     if [ -f $conda_dir ]; then 
         source $conda_dir
     fi
-
 fi
 
 # enable workflow scripts, if available
@@ -51,8 +55,12 @@ fi
 
 # enable FZF, if available
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-[ -f $HOME/.vim/plugged/fzf/bin/fzf ] && source $HOME/.vim/plugged/fzf/bin/fzf
-export FZF_DEFAULT_OPTS='--exact'
+export FZF_DEFAULT_OPTS="--exact"
+if [ -x "$(command -v bat)" ]; then
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview 'bat --color=always\
+                                                        --style=header,grid\
+                                                        --line-range :300 {}'"
+fi
 #=============================================================================
 # Aliases
 #=============================================================================

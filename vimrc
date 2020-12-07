@@ -35,18 +35,16 @@ augroup filetype_settings
 augroup END
 
 autocmd VimEnter * if exists(":FZF")
-            \ |     nnoremap <c-p> :FZF<CR> 
-            \ | else 
+            \ |     nnoremap <c-p> :FZF<CR>
+            \ |     nnoremap <leader>ff :Rg
+            \ | else
             \ |     nnoremap <c-p> :find
             \ | endif
-    
-nnoremap <c-p> :find<space>
 
 "=============================================================================
 " Commands
 "=============================================================================
 command! MakeTags !ctags -R .
-
 "=============================================================================
 " Plugins
 "=============================================================================
@@ -170,7 +168,7 @@ if v:version >= 802
                 \systemlist("cd " . shellescape(fnamemodify(resolve(
                 \expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " .
                 \shellescape(line("v") . "," . line(".") . ":" . resolve(
-                \expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", 
+                \expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft",
                 \"wrap": 0 })), "&filetype", "git")<CR>
 endif
 
