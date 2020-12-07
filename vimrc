@@ -51,7 +51,7 @@ command! MakeTags !ctags -R .
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
- Plug 'Rigellute/rigel'
+Plug 'Rigellute/rigel'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
@@ -67,7 +67,7 @@ Plug 'vim-scripts/Tagbar'
 Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/ListToggle'
 Plug 'fcpg/vim-farout'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
@@ -164,7 +164,6 @@ nnoremap <silent><leader>4  :set list!<cr>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
 nnoremap <silent><leader>hl :set hlsearch!<cr>
 nnoremap <silent><leader>sp :set spell!<cr>
-
 
 if v:version >= 802
     map <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(
