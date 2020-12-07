@@ -58,8 +58,9 @@ fi
 export FZF_DEFAULT_OPTS="--exact --bind='F2:toggle-preview'"
 if [ -x "$(command -v bat)" ]; then
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview 'bat --color=always\
-                                                        --style=header,grid\
-                                                        --line-range :300 {}'"
+                                                --theme=\"Solarized (dark)\"\
+                                                --style=header,grid\
+                                                --line-range :300 {}'"
 fi
 #=============================================================================
 # Aliases
