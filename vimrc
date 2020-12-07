@@ -34,6 +34,14 @@ augroup filetype_settings
                                                  \ generic#StripWhitespaceCR()
 augroup END
 
+autocmd VimEnter * if exists(":FZF")
+            \ |     nnoremap <c-p> :FZF<CR> 
+            \ | else 
+            \ |     nnoremap <c-p> :find
+            \ | endif
+    
+nnoremap <c-p> :find<space>
+
 "=============================================================================
 " Commands
 "=============================================================================
@@ -43,7 +51,7 @@ command! MakeTags !ctags -R .
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
-Plug 'Rigellute/rigel'
+ Plug 'Rigellute/rigel'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
@@ -59,6 +67,8 @@ Plug 'vim-scripts/Tagbar'
 Plug 'davidhalter/jedi-vim'
 Plug 'Valloric/ListToggle'
 Plug 'fcpg/vim-farout'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "=============================================================================
@@ -143,8 +153,7 @@ endif
 "=============================================================================
 cnoremap w!! w !sudo tee > /dev/null %
 inoremap jj <esc>
-nnoremap gp `[v`]
-nnoremap <c-p> :find<space>
+nnoremap gp `[v`]a
 nnoremap <pageup> <c-u>
 nnoremap <pagedown> <c-d>
 
@@ -155,6 +164,7 @@ nnoremap <silent><leader>4  :set list!<cr>
 nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
 nnoremap <silent><leader>hl :set hlsearch!<cr>
 nnoremap <silent><leader>sp :set spell!<cr>
+
 
 if v:version >= 802
     map <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(
