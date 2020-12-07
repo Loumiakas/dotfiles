@@ -51,6 +51,8 @@ fi
 
 # enable FZF, if available
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f $HOME/.vim/plugged/fzf/bin/fzf ] && source $HOME/.vim/plugged/fzf/bin/fzf
+export FZF_DEFAULT_OPTS='--exact'
 #=============================================================================
 # Aliases
 #=============================================================================
