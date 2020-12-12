@@ -40,7 +40,6 @@ autocmd VimEnter * if exists(":FZF")
             \ | else
             \ |     nnoremap <c-p> :find
             \ | endif
-
 "=============================================================================
 " Commands
 "=============================================================================
@@ -73,11 +72,25 @@ call plug#end()
 " Plugin Settings
 "=============================================================================
 let g:csv_no_conceal = 1
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+let g:fzf_preview_window = ['up:70%', 'ctrl-/']
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='soft'
 let g:tagbar_autoclose=1
 let g:tagbar_sort=0
-let g:gruvbox_contrast_light='soft'
-let g:gruvbox_contrast_dark='hard'
-
 "=============================================================================
 " Settings
 "=============================================================================

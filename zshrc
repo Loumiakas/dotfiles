@@ -18,10 +18,12 @@ bindkey "^X^E" edit-command-line
 # Globals
 #=============================================================================
 export ANDROID_HOME=$HOME/Library/android/sdk/platform-tools:$HOME/.platform-tools
+export BAT_THEME="Solarized (dark)"
 export BREW_CASKROOM=/usr/local/Caskroom
 export BREW_CELLAR=/usr/local/Cellar
 export CLICOLOR=1
 export EDITOR=/usr/local/bin/vim
+export FZF_DEFAULT_OPTS="--exact --bind='F2:toggle-preview'"
 export HISTFILE=$HOME/.zsh_history
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -55,13 +57,7 @@ fi
 
 # enable FZF, if available
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-export FZF_DEFAULT_OPTS="--exact --bind='F2:toggle-preview'"
-if [ -x "$(command -v bat)" ]; then
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview 'bat --color=always\
-                                                --theme=\"Solarized (dark)\"\
-                                                --style=header,grid\
-                                                --line-range :300 {}'"
-fi
+
 #=============================================================================
 # Aliases
 #=============================================================================
