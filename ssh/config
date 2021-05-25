@@ -1,2 +1,15 @@
 Host *
-ServerAliveInterval 240
+    ServerAliveInterval 240
+
+Host pi
+    Hostname 192.168.0.100
+    Port 22
+    User pi
+    ForwardX11 yes
+    ForwardX11Trusted yes
+Host vm
+    Hostname 192.168.56.4
+    Port 22
+    User loumiakas
+    ForwardX11 yes
+    ForwardX11Trusted yes

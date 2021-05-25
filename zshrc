@@ -82,7 +82,7 @@ alias vi='vim'
 #=============================================================================
 source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh_plugins/zsh/loumiakas.zsh-theme
+source $HOME/.zsh_plugins/zsh/parrot.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
 source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
