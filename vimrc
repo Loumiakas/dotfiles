@@ -48,6 +48,7 @@ command! MakeTags !ctags -R .
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
 Plug 'Rigellute/rigel'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'chriskempson/base16-vim'
