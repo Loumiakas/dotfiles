@@ -48,6 +48,7 @@ command! MakeTags !ctags -R .
 " Plugins
 "=============================================================================
 call plug#begin('~/.vim/plugged')
+Plug 'lifepillar/vim-solarized8'
 Plug 'Loumiakas/moonlight-vim'
 Plug 'Rigellute/rigel'
 Plug 'Valloric/ListToggle'
@@ -155,13 +156,12 @@ if has('gui_running') || exists('g:GuiLoaded')
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 else
-    colorscheme default
-
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
         set t_8b=[48;2;%lu;%lu;%lum
         set termguicolors
     endif
+    colorscheme solarized8
 endif
 
 "=============================================================================
