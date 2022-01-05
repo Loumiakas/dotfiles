@@ -26,6 +26,7 @@ if [[ $OS == Windows* ]]; then
     ln -s $SCRIPT_HOME/vim/autoload/* $HOME/vimfiles/autoload
     curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 else
     if [ -d "$HOME/.vim/after" ]; then
         ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
