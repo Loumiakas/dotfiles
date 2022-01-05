@@ -19,18 +19,25 @@ function update_repos()
     done
 }
 
-if [ -d "$HOME/.vim/after" ]; then
-    ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
+if [[ $OS == Windows* ]]; then
+    rm -rf $HOME/vimfiles
+    mkdir -p $HOME/vimfiles/{after, autoload}
+    ln -s $SCRIPT_HOME/vim/after/* $HOME/vimfiles/after
+    ln -s $SCRIPT_HOME/vim/autoload/* $HOME/vimfiles/autoload
 else
-    mkdir -p $HOME/.vim/after
-    ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
-fi
+    if [ -d "$HOME/.vim/after" ]; then
+        ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
+    else
+        mkdir -p $HOME/.vim/after
+        ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
+    fi
 
-if [ -d "$HOME/.vim/autoload" ]; then
-    ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
-else
-    mkdir -p $HOME/.vim/autoload
-    ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
+    if [ -d "$HOME/.vim/autoload" ]; then
+        ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
+    else
+        mkdir -p $HOME/.vim/autoload
+        ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
+    fi
 fi
 
 # zsh plugins
@@ -40,16 +47,30 @@ clone_plugin "zsh-users/zsh-completions"
 clone_plugin "zsh-users/zsh-autosuggestions"
 
 # syslink configuration files
-ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
-ln -s $SCRIPT_HOME/zsh zsh_plugins
-ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
-ln -s $SCRIPT_HOME/vimrc $HOME/.vimrc
-ln -s $SCRIPT_HOME/tmux.conf $HOME/.tmux.conf
-ln -s $SCRIPT_HOME/tmux-macos.conf $HOME/.tmux-macos.conf
-ln -s $SCRIPT_HOME/tmux-linux.conf $HOME/.tmux-linux.conf
-ln -s $SCRIPT_HOME/gdbinit $HOME/.gdbinit
-ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
-ln -s $SCRIPT_HOME/gitignore $HOME/.gitignore
+if [[ $OS == Windows* ]]; then
+    rm -rf $HOME/.zsh_plugins
+    rm -f $HOME/.zshrc
+    rm -f $HOME/.gitconfig
+    rm -f $HOME/.gitignore
+    rm -f $HOME/_vimrc
+    
+    ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
+    ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
+    ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
+    ln -s $SCRIPT_HOME/gitignore $HOME/.gitignore
+    ln -s $SCRIPT_HOME/vimrc $HOME/_vimrc
+else
+    ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
+    ln -s $SCRIPT_HOME/zsh zsh_plugins
+    ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
+    ln -s $SCRIPT_HOME/vimrc $HOME/.vimrc
+    ln -s $SCRIPT_HOME/tmux.conf $HOME/.tmux.conf
+    ln -s $SCRIPT_HOME/tmux-macos.conf $HOME/.tmux-macos.conf
+    ln -s $SCRIPT_HOME/tmux-linux.conf $HOME/.tmux-linux.conf
+    ln -s $SCRIPT_HOME/gdbinit $HOME/.gdbinit
+    ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
+    ln -s $SCRIPT_HOME/gitignore $HOME/.gitignore
+fi
 if [ ! -d $HOME/.ssh ]; then
     mkdir $HOME/.ssh
 fi
