@@ -140,7 +140,7 @@ if has('mouse_sgr')
 endif
 
 if has('gui_running') || exists('g:GuiLoaded')
-    colorscheme challenger_deep
+    colorscheme nightfly
     set guioptions-=r
     set guioptions-=L
     set guioptions-=T
@@ -150,11 +150,12 @@ if has('gui_running') || exists('g:GuiLoaded')
     elseif has("gui_macvim")
         set guifont=Menlo\ Regular:h14
     elseif has("gui_win32")
-        set guifont=gohufont-14:h11
+        set guifont=UbuntuMono\ Nerd\ Font\ Mono:h11
     elseif exists('g:GuiLoaded')
         GuiFont! gohufont-14:h11
     endif
     map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
 else
     if has('termguicolors')
         set t_8f=[38;2;%lu;%lu;%lum
