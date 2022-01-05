@@ -21,9 +21,11 @@ function update_repos()
 
 if [[ $OS == Windows* ]]; then
     rm -rf $HOME/vimfiles
-    mkdir -p $HOME/vimfiles/{after, autoload}
+    mkdir -p $HOME/vimfiles/{after,autoload}
     ln -s $SCRIPT_HOME/vim/after/* $HOME/vimfiles/after
     ln -s $SCRIPT_HOME/vim/autoload/* $HOME/vimfiles/autoload
+    curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
     if [ -d "$HOME/.vim/after" ]; then
         ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
