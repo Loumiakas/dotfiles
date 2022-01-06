@@ -59,6 +59,7 @@ if [[ $OS == Windows* ]]; then
     rm -f $HOME/.gitconfig
     rm -f $HOME/.gitignore
     rm -f $HOME/_vimrc
+    rm -f $HOME/.vimrc
     
     ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
     ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
