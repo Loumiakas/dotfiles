@@ -14,6 +14,6 @@ function! generic#ACI()
     :silent substitute/sizeof[ ]\{0,}([ ]\{0,}\(\<.*\>\)[ ]\{0,})/sizeof( \1 )/ge
     :silent substitute/}\s\+\/\/[ ]\{0,5\}/}   \/\/  /ge
     :silent substitute/ \/\/[ ]\{0,4\}\(\w\+\)/ \/\/  \1/ge
-    :silent! 1,20substitute/Copyright.*\zs\d\{4}\ze/2020/ge
+    :silent! 1,20substitute/Copyright.*\zs\d\{4}\ze/2022/ge
     :normal `Q
 endfunction
