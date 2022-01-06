@@ -148,7 +148,7 @@ if has('gui_running') || exists('g:GuiLoaded')
     if has("gui_gtk2")
         set guifont=Ubuntu\ Mono:h12
     elseif has("gui_macvim")
-        set guifont=Ubuntu\ Mono:h12
+        set guifont=Ubuntu\ Mono:h15
     elseif has("gui_win32")
         set guifont=Ubuntu\ Mono:h12
     elseif exists('g:GuiLoaded')
