@@ -21,6 +21,7 @@ function update_repos()
 
 if [[ $OS == Windows* ]]; then
     rm -rf $HOME/vimfiles
+    rm -rf $HOME/.vim
     mkdir -p $HOME/vimfiles/{after,autoload}
     ln -s $SCRIPT_HOME/vim/after/* $HOME/vimfiles/after
     ln -s $SCRIPT_HOME/vim/autoload/* $HOME/vimfiles/autoload
