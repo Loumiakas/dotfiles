@@ -71,11 +71,13 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Tagbar'
 Plug 'whatyouhide/vim-gotham'
+Plug 'xavierd/clang_complete'
 call plug#end()
 
 "=============================================================================
 " Plugin Settings
 "=============================================================================
+let g:clang_library_path='/usr/lib64/llvm/'
 let g:csv_no_conceal = 1
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
