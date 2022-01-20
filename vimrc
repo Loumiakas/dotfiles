@@ -77,7 +77,14 @@ call plug#end()
 "=============================================================================
 " Plugin Settings
 "=============================================================================
-let g:clang_library_path='/usr/lib64/llvm/'
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+      let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+  else
+      let g:clang_library_path='/usr/lib64/llvm/'
+  endif
+endif
 let g:csv_no_conceal = 1
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
