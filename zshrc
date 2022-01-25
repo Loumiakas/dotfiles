@@ -75,7 +75,6 @@ alias ll='ls -lrth'
 alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias sudo='sudo '
 alias tx='tmuxp '
-alias update='brew update; brew upgrade; brew upgrade --cask; brew cleanup'
 alias vi='vim'
 #=============================================================================
 # Plugins and Themes
@@ -88,6 +87,17 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
 # Functions
 #=============================================================================
+# function to update binaries
+function update {
+    if [ -x "$(command -v apt)" ]; then
+        sudo apt update && sudo apt upgrade
+    elif [ -x "$(command -v brew)" ]; then
+        brew update && brew upgrade
+    elif [ -x "$(command -v yum)" ]; then
+        yum update && yum upgrade
+    fi
+}
+
 # function to generate ctags
 function gtags {
     if [[ $1 = 'cpp' ]]; then
