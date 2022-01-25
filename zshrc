@@ -89,7 +89,7 @@ source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
 # function to update binaries
 function update {
-    if [ -x "$(command -v apt)" ]; then
+    if ( [ -x "$(command -v apt)" ] && [[ $(uname) != "Darwin" ]] ); then
         sudo apt update && sudo apt upgrade
     elif [ -x "$(command -v brew)" ]; then
         brew update && brew upgrade
