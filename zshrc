@@ -120,3 +120,4 @@ function pskill {
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
 add-zsh-hook -d precmd  precmd_update_git_vars
+
