@@ -14,6 +14,13 @@ autoload -U compinit && compinit
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+
+# use gpg-agent for ssh authentication
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 #=============================================================================
 # Globals
 #=============================================================================
@@ -92,7 +99,7 @@ function update {
     if ( [ -x "$(command -v apt)" ] && [[ $(uname) != "Darwin" ]] ); then
         sudo apt update && sudo apt upgrade
     elif [ -x "$(command -v brew)" ]; then
-        brew update && brew upgrade
+        brew update && brew upgrade && brew cleanup --prune 0
     elif [ -x "$(command -v yum)" ]; then
         yum update && yum upgrade
     fi
