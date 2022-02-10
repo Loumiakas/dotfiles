@@ -17,7 +17,8 @@
 [core]
     excludesfile = ~/.gitignore
 [user]
-    name = Ruslan Laskov
-    email = ruslan.laskov@aciworldwide.com
+    name = Ruslanas Laskovas
+    email = loumiakas1@gmail.com
+    signingkey = 9739CDB49DA22500
 [mergetool "bc3"]
     trustExitCode = true
