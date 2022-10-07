@@ -191,7 +191,8 @@ nnoremap <silent><leader>6  :call colorcolumn#ToggleColorColumn()<cr>
 nnoremap <silent><leader>hl :set hlsearch!<cr>
 nnoremap <silent><leader>sp :set spell!<cr>
 
-if v:version >= 802
+if v:version >= 811
+    set shortmess-=S
     map <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(
                 \systemlist("cd " . shellescape(fnamemodify(resolve(
                 \expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " .
