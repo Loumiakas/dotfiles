@@ -123,6 +123,13 @@ function pskill {
     fi
     ps -ef | grep $1 | grep -v grep | awk -F ' ' '{print $2}' | xargs kill -9
 }
+#function to restart sound service on Linux
+if [[ $(uname) == "Linux" ]]; then
+    function rrsound {
+       sudo killall pulseaudio
+       systemctl restart --user pulseaudio.service  
+    }
+fi
 # disable hooks that slow down performance
 add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
