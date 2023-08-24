@@ -38,6 +38,13 @@ else
     ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
 fi
 
+if [ -d "$HOME/.config/nvim" ]; then
+    cp -Rs $SCRIPT_HOME/config/nvim/* $HOME/.config/nvim
+else
+    mkdir -p $HOME/.config/nvim
+    cp -Rs $SCRIPT_HOME/config/nvim/* $HOME/.config/nvim
+fi
+
 if [ -d "$HOME/.vim/autoload" ]; then
     ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
 else
