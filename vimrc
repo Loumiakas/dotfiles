@@ -72,6 +72,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Tagbar'
 Plug 'whatyouhide/vim-gotham'
 Plug 'xavierd/clang_complete'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 "=============================================================================
@@ -82,7 +85,7 @@ if has("unix")
   if s:uname == "Darwin\n"
       let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
   else
-      let g:clang_library_path='/usr/lib64/llvm/'
+      let g:clang_library_path='/usr/lib64/'
   endif
 endif
 let g:csv_no_conceal = 1
