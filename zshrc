@@ -82,7 +82,11 @@ alias ll='ls -lrth'
 alias rmhist='echo "" > $HISTFILE & exec $SHELL -l'
 alias sudo='sudo '
 alias tx='tmuxp '
-alias vi='vim'
+if [ -x "$(command -v nvim)" ]; then
+    alias vi='nvim'
+else
+    alias vi='vim'
+fi
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
