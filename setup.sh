@@ -54,7 +54,7 @@ fi
 
 
 # zsh plugins
-clone_plugin "olivierverdier/zsh-git-prompt"
+clone_plugin "woefe/git-prompt.zsh"
 clone_plugin "zsh-users/zsh-syntax-highlighting"
 clone_plugin "zsh-users/zsh-completions"
 clone_plugin "zsh-users/zsh-autosuggestions"

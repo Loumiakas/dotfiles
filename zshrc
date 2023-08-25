@@ -62,9 +62,6 @@ fi
 # enable workflow scripts, if available
 [ -f $HOME/.workflow.sh ] && source $HOME/.workflow.sh
 
-# enable FZF, if available
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
 #=============================================================================
 # Aliases
 #=============================================================================
@@ -90,9 +87,8 @@ fi
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
-source $HOME/.zsh_plugins/zsh-git-prompt/zshrc.sh
+source $HOME/.zsh_plugins/git-prompt.zsh/git-prompt.zsh
 source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh_plugins/zsh/parrot.zsh-theme
 source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
 source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #=============================================================================
@@ -139,3 +135,5 @@ add-zsh-hook -d chpwd   chpwd_update_git_vars
 add-zsh-hook -d preexec preexec_update_git_vars
 add-zsh-hook -d precmd  precmd_update_git_vars
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
