@@ -55,7 +55,7 @@ Plug 'Valloric/ListToggle'
 Plug 'Yggdroot/indentLine'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-nightfly-guicolors'
-"Plug 'brookhong/cscope.vim'
+Plug 'puremourning/vimspector'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'chriskempson/base16-vim'
 Plug 'davidhalter/jedi-vim'
@@ -107,6 +107,7 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='soft'
 let g:tagbar_autoclose=1
 let g:tagbar_sort=0
+let g:vimspector_enable_mappings = 'HUMAN'
 "=============================================================================
 " Settings
 "=============================================================================
