@@ -1,24 +1,6 @@
 #!/bin/bash
 SCRIPT_HOME=$(dirname $0 | while read a; do cd $a && pwd && break; done)
 
-function clone_plugin()
-{
-    repo=$(echo $1 | awk -F'/' '{print $2}')
-    if [ ! -d "$SCRIPT_HOME/zsh_plugins" ]; then
-        mkdir $SCRIPT_HOME/zsh_plugins
-    fi
-    git clone https://github.com/$1.git $SCRIPT_HOME/zsh_plugins/$repo
-}
-
-function update_repos()
-{
-    dir_list=($(ls $SCRIPT_HOME/zsh_plugins))
-    for repo in "${dir_list[@]}"; do
-        cd $SCRIPT_HOME/zsh_plugins/$repo
-        git pull
-    done
-}
-
 if [[ $OS == Windows* ]]; then
     rm -rf $HOME/vimfiles
     rm -rf $HOME/.vim
@@ -30,6 +12,7 @@ if [[ $OS == Windows* ]]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
+curl -fLo ~/.antigen.zsh git.io/antigen
 
 if [ -d "$HOME/.vim/after" ]; then
     ln -s $SCRIPT_HOME/vim/after/* $HOME/.vim/after
@@ -52,31 +35,20 @@ else
     ln -s $SCRIPT_HOME/vim/autoload/* $HOME/.vim/autoload
 fi
 
-
-# zsh plugins
-clone_plugin "woefe/git-prompt.zsh"
-clone_plugin "zsh-users/zsh-syntax-highlighting"
-clone_plugin "zsh-users/zsh-completions"
-clone_plugin "zsh-users/zsh-autosuggestions"
-
 # syslink configuration files
 if [[ $OS == Windows* ]]; then
-    rm -rf $HOME/.zsh_plugins
     rm -f $HOME/.zshrc
     rm -f $HOME/.gitconfig
     rm -f $HOME/.gitignore
     rm -f $HOME/_vimrc
     rm -f $HOME/.vimrc
     
-    ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
     ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
     ln -s $SCRIPT_HOME/gitconfig $HOME/.gitconfig
     ln -s $SCRIPT_HOME/gitignore $HOME/.gitignore
     ln -s $SCRIPT_HOME/vimrc $HOME/_vimrc
 fi
 
-ln -s $SCRIPT_HOME/zsh_plugins $HOME/.zsh_plugins
-ln -s $SCRIPT_HOME/zsh zsh_plugins
 ln -s $SCRIPT_HOME/zshrc $HOME/.zshrc
 ln -s $SCRIPT_HOME/vimrc $HOME/.vimrc
 ln -s $SCRIPT_HOME/tmux.conf $HOME/.tmux.conf
@@ -90,5 +62,3 @@ if [ ! -d $HOME/.ssh ]; then
     mkdir $HOME/.ssh
 fi
 ln -s $SCRIPT_HOME/ssh/config $HOME/.ssh/config
-
-update_repos
