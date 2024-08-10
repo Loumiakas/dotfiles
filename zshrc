@@ -87,10 +87,11 @@ fi
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
-source $HOME/.zsh_plugins/git-prompt.zsh/git-prompt.zsh
-source $HOME/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh_plugins/zsh/tmux.plugin.zsh
-source $HOME/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle Aloxaf/fzf-tab
+antigen bundle woefe/git-prompt.zsh
+antigen apply
 #=============================================================================
 # Functions
 #=============================================================================
