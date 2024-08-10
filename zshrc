@@ -87,7 +87,7 @@ fi
 #=============================================================================
 # Plugins and Themes
 #=============================================================================
-source ~/antigen.zsh
+source ~/.antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle Aloxaf/fzf-tab
 antigen bundle woefe/git-prompt.zsh
