@@ -85,6 +85,7 @@ if has("unix")
       let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
   else
       let g:clang_library_path='/usr/lib64/'
+      let g:python3_host_prog = '/usr/bin/python3'
   endif
 endif
 let g:csv_no_conceal = 1
